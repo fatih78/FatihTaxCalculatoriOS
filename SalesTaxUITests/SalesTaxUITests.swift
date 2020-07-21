@@ -7,37 +7,106 @@
 //
 
 import XCTest
+import UIKit
 
 class SalesTaxUITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+    
+    
+    let application:XCUIApplication = XCUIApplication()
+    
+    let button = XCUIApplication().buttons["CALCULATE"]
+    let eurosign = XCUIApplication().images["EuroSign"]
+    let taxCountry = XCUIApplication().textFields["TaxCountry"]
+    let priceLabel = XCUIApplication().textFields ["Price"]
+    let taxLabel = XCUIApplication().textFields ["SalesTax"]
+    let totalLabel = XCUIApplication().staticTexts["TotalPrice"]
+    let okButton = XCUIApplication().staticTexts["OK"]
+    
+    
+    
+    override func setUp() {
+        super.setUp()
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        XCUIApplication().launch()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    
+    
+    func testElements() {
+        
+        XCTAssertNotNil(priceLabel)
+        XCTAssertTrue(priceLabel.exists)
+        XCTAssertNotNil(taxLabel)
+        XCTAssertTrue(taxLabel.exists)
+        XCTAssertNotNil(totalLabel)
+        XCTAssertTrue(totalLabel.exists)
+        XCTAssertTrue(taxCountry.exists)
+        XCTAssertTrue(okButton.exists)
+        
     }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
+    
+    func testTaxCalculationNetherlands() {
+        
+        let country = "Netherlands"
+        
+        taxCountry.tap()
+        taxCountry.typeText(country)
+        priceLabel.tap()
+        priceLabel.typeText("200").self
+        
+        taxLabel.tap()
+        if (country == "Netherlands"){
+            taxLabel.typeText("0.21").self
+        } else if (country == "France"){
+            taxLabel.typeText("0.20").self
+        }
+        
+        eurosign.tap()
+        button.tap()
+        
+        if let contentTotal = totalLabel.value as? Double {
+            XCTAssert(contentTotal.isEqual(to: 242.00))
+        }
+        
+    }
+    
+    func testTaxCalculationFrance() {
+        
+        let country = "France"
+        
+        taxCountry.tap()
+        taxCountry.typeText(country)
+        priceLabel.tap()
+        priceLabel.typeText("200").self
+        
+        taxLabel.tap()
+        if (country == "Netherlands"){
+            taxLabel.typeText("0.21").self
+        } else if (country == "France"){
+            taxLabel.typeText("0.20").self
+        }
+        
+        eurosign.tap()
+        button.tap()
+        
+        if let contentTotal = totalLabel.value as? Double {
+            XCTAssert(contentTotal.isEqual(to: 242.00))
         }
     }
+    
+    
+    
+    //    func testLaunchPerformance() {
+    //        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+    //            application.launch()
+    //            // This measures how long it takes to launch your application.
+    //            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
+    //                XCUIApplication().launch()
+    //            }
+    //        }
+    //    }
 }
