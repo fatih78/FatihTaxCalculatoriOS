@@ -53,8 +53,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var taxNL: UIButton! {
     didSet {
         taxNL.accessibilityIdentifier = "taxNL"
-//        salesTaxTxt.text = "0.21"
-//        country.text = "Netherlands"
         }
         
     }

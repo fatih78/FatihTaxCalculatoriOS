@@ -15,13 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30.50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QN1-bq-I6o">
-                                <rect key="frame" x="131" y="136" width="121" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p3r-PR-s62">
                                 <rect key="frame" x="102" y="252" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,8 +43,8 @@
                                     <action selector="calculateTotalPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gvs-5Z-czD"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Fatih's Tax Calculator" borderStyle="roundedRect" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Vl5-Vu-noI">
-                                <rect key="frame" x="83" y="55" width="220" height="57"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Fatih's Tax Calculator" borderStyle="roundedRect" textAlignment="center" minimumFontSize="16" background="eurosign.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vl5-Vu-noI">
+                                <rect key="frame" x="94" y="44" width="199" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,6 +83,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30.50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QN1-bq-I6o">
+                                <rect key="frame" x="131" y="111" width="121" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="eurosign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Fca-5n-ymI">
+                                <rect key="frame" x="104" y="120.5" width="34" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -110,4 +114,8 @@
             <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="eurosign.circle" catalog="system" width="128" height="121"/>
+        <image name="eurosign.square" catalog="system" width="128" height="114"/>
+    </resources>
 </document>

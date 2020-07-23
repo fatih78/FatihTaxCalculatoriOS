@@ -23,7 +23,7 @@ class SalesTaxUITests: XCTestCase {
     let okButton = XCUIApplication().staticTexts["OK"]
     let taxButtonFR = XCUIApplication().buttons["FR"]
     let taxButtonNL = XCUIApplication().buttons["NL"]
-    let alert = XCUIApplication().alerts["Error"].collectionViews.buttons["OK"]
+    let alert = XCUIApplication().alerts["Error"]
 
 
     
@@ -53,12 +53,19 @@ class SalesTaxUITests: XCTestCase {
         
     }
     
+     func testPriceAlertMessage() {
+    
+         priceLabel.tap()
+         priceLabel.typeText("0").self
+         button.tap()
+         XCTAssertTrue(alert.exists)
 
+     }
     
     func testTaxCalculationFrance() {
    
         priceLabel.tap()
-        priceLabel.typeText("200").self
+        priceLabel.typeText("200")
         taxButtonFR.tap()
         button.tap()
         
@@ -67,20 +74,10 @@ class SalesTaxUITests: XCTestCase {
         }
     }
     
-     func testPriceAlertMessage() {
-    
-         priceLabel.tap()
-         priceLabel.typeText("0").self
-         taxButtonFR.tap()
-         button.tap()
-//         XCTAssertTrue(alert.exists)
-
-     }
-    
     func testTaxCalculationNetherlands() {
         
         priceLabel.tap()
-        priceLabel.typeText("200").self
+        priceLabel.typeText("200")
         taxButtonNL.tap()
         button.tap()
         
