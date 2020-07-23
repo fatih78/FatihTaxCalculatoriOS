@@ -102,19 +102,6 @@ class ViewController: UIViewController {
     }
     
     
-    //  is loaded whenever our screen is loaded everytime
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    // to set the label on a empty string by every load
-        totalPriceLbl.text = ""
-        country.text = "empty"
-        priceTxt.text = ""
-        salesTaxTxt.text = "0.00"
-    // hide keyboard with every load
-        self.HideKeyboard()
-//        self.okButton.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
-    }
-    
     
     @IBAction func calculateTotalPrice(_ sender: Any) {
     //creating alert in case of empty values
@@ -172,8 +159,21 @@ class ViewController: UIViewController {
             print("OK")
         }))
         
-        self.present (alert, animated: true, completion: nil)
+//        self.present (alert, animated: true, completion: nil)
     }
+    
+// Is loaded whenever our screen is loaded everytime
+        override func viewDidLoad() {
+            super.viewDidLoad()
+        // to set the label on a empty string by every load
+            totalPriceLbl.text = ""
+            country.text = "empty"
+            priceTxt.text = ""
+            salesTaxTxt.text = "0.00"
+        // hide keyboard with every load
+            self.HideKeyboard()
+    //     self.okButton.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
+        }
     
 }
 
