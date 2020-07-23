@@ -23,6 +23,7 @@ extension UIViewController {
 
 
 class ViewController: UIViewController {
+
     
     
     @IBOutlet weak var priceTxt: UITextField! {
@@ -49,6 +50,37 @@ class ViewController: UIViewController {
             }
         }
     
+    @IBOutlet weak var taxNL: UIButton! {
+    didSet {
+        taxNL.accessibilityIdentifier = "taxNL"
+//        salesTaxTxt.text = "0.21"
+//        country.text = "Netherlands"
+        }
+        
+    }
+    
+    @IBAction func taxNL(_ sender: Any) {
+        salesTaxTxt.text?.removeAll()
+        salesTaxTxt.insertText("0.21")
+        country.text?.removeAll()
+        country.insertText("Netherlands")
+
+    }
+    
+    @IBOutlet weak var taxFR: UIButton!{
+    didSet {
+        taxFR.accessibilityIdentifier = "taxFR"
+        }
+
+    }
+    
+    @IBAction func taxFR(_ sender: Any) {
+        salesTaxTxt.text?.removeAll()
+        salesTaxTxt.insertText("0.20")
+        country.text?.removeAll()
+        country.insertText("France")
+    }
+    
     
     @IBOutlet weak var totalPriceLbl: UILabel! {
         didSet {
@@ -56,9 +88,10 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var euroSign: UIImageView! {
+
+    @IBOutlet weak var appLabel: UITextField! {
         didSet {
-            euroSign.accessibilityIdentifier = "EuroSign"
+            appLabel.accessibilityIdentifier = "AppLabel"
         }
     }
     
@@ -69,26 +102,29 @@ class ViewController: UIViewController {
     }
     
     
-    //    is loaded whenever our screen is loaded everytime
+    //  is loaded whenever our screen is loaded everytime
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        to set the label on a empty string by every load
+    // to set the label on a empty string by every load
         totalPriceLbl.text = ""
-        //         hide keyboard with every load
+        country.text = "empty"
+        priceTxt.text = ""
+        salesTaxTxt.text = "0.00"
+    // hide keyboard with every load
         self.HideKeyboard()
-        self.okButton.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
+//        self.okButton.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
     }
     
     
     @IBAction func calculateTotalPrice(_ sender: Any) {
-        //        let is an variable, we need to convert text into number with 'Double' > decimals
+    //  let is an variable, we need to convert text into number with 'Double' > decimals
         let price = Double(priceTxt.text!)!
         let salesTax = Double(salesTaxTxt.text!)!
         
         let totalSalesTax = price * salesTax
         let totalPrice = price + totalSalesTax
         
-        //         we're converting a number into a string > string interpolation
+    //  we're converting a number into a string > string interpolation
         totalPriceLbl.text = "\(totalPrice)"
     }
     
@@ -117,7 +153,7 @@ class ViewController: UIViewController {
         // Create Alert
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         //        // Creating on button
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
             print("OK")
         }))

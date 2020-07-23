@@ -21,6 +21,10 @@ class SalesTaxUITests: XCTestCase {
     let taxLabel = XCUIApplication().textFields ["SalesTax"]
     let totalLabel = XCUIApplication().staticTexts["TotalPrice"]
     let okButton = XCUIApplication().staticTexts["OK"]
+    let taxButtonFR = XCUIApplication().buttons["FR"]
+    let taxButtonNL = XCUIApplication().buttons["NL"]
+
+
     
     
     
@@ -45,57 +49,34 @@ class SalesTaxUITests: XCTestCase {
         XCTAssertNotNil(totalLabel)
         XCTAssertTrue(totalLabel.exists)
         XCTAssertTrue(taxCountry.exists)
-        XCTAssertTrue(okButton.exists)
         
+    }
+    
+
+    
+    func testTaxCalculationFrance() {
+   
+        priceLabel.tap()
+        priceLabel.typeText("200").self
+        taxButtonFR.tap()
+        button.tap()
+        
+        if let contentTotal = totalLabel.value as? Double {
+            XCTAssert(contentTotal.isEqual(to: 242.00))
+        }
     }
     
     func testTaxCalculationNetherlands() {
         
-        let country = "Netherlands"
-        
-        taxCountry.tap()
-        taxCountry.typeText(country)
         priceLabel.tap()
         priceLabel.typeText("200").self
-        
-        taxLabel.tap()
-        if (country == "Netherlands"){
-            taxLabel.typeText("0.21").self
-        } else if (country == "France"){
-            taxLabel.typeText("0.20").self
-        }
-        
-        eurosign.tap()
+        taxButtonNL.tap()
         button.tap()
         
         if let contentTotal = totalLabel.value as? Double {
             XCTAssert(contentTotal.isEqual(to: 242.00))
         }
         
-    }
-    
-    func testTaxCalculationFrance() {
-        
-        let country = "France"
-        
-        taxCountry.tap()
-        taxCountry.typeText(country)
-        priceLabel.tap()
-        priceLabel.typeText("200").self
-        
-        taxLabel.tap()
-        if (country == "Netherlands"){
-            taxLabel.typeText("0.21").self
-        } else if (country == "France"){
-            taxLabel.typeText("0.20").self
-        }
-        
-        eurosign.tap()
-        button.tap()
-        
-        if let contentTotal = totalLabel.value as? Double {
-            XCTAssert(contentTotal.isEqual(to: 242.00))
-        }
     }
     
     
