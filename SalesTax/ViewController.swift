@@ -117,9 +117,23 @@ class ViewController: UIViewController {
     
     
     @IBAction func calculateTotalPrice(_ sender: Any) {
+    //creating alert in case of empty values
+        let alert = UIAlertController(title: "Error", message: "Can't be empty", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            print("OK is pressed")
+        }))
+        
     //  let is an variable, we need to convert text into number with 'Double' > decimals
         let price = Double(priceTxt.text!)!
+        if price.isLess(than: 1.00) == true {
+            present(alert, animated: true, completion: nil)
+        }
+        
         let salesTax = Double(salesTaxTxt.text!)!
+        if salesTax.isLess(than: 0.00) == true {
+            present(alert, animated: true, completion: nil)
+         }
+
         
         let totalSalesTax = price * salesTax
         let totalPrice = price + totalSalesTax

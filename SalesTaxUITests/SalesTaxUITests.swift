@@ -66,6 +66,14 @@ class SalesTaxUITests: XCTestCase {
         }
     }
     
+     func testPriceAlertMessage() {
+    
+         priceLabel.tap()
+         priceLabel.typeText("0").self
+         taxButtonFR.tap()
+         button.tap()
+     }
+    
     func testTaxCalculationNetherlands() {
         
         priceLabel.tap()
