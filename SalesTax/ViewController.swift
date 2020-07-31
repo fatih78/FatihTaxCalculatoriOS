@@ -10,6 +10,18 @@ import UIKit
 
 extension UIViewController {
     
+    @IBAction func start (_ sender:AnyObject ){
+        let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = UIActivityIndicatorView.Style.medium
+        view.addSubview(activityIndicator)
+
+        activityIndicator.startAnimating()
+        self.view.isUserInteractionEnabled = false
+   }
+    
     func HideKeyboard () {
         let Tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
         
@@ -30,6 +42,7 @@ class ViewController: UIViewController {
         didSet {
             priceTxt.accessibilityIdentifier = "Price"
         }
+    
     }
     
     @IBOutlet weak var salesTaxTxt: UITextField! {
@@ -170,6 +183,7 @@ class ViewController: UIViewController {
             salesTaxTxt.text = "0.00"
         // hide keyboard with every load
             self.HideKeyboard()
+            view.backgroundColor = .lightGray
     //     self.okButton.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
         }
     
