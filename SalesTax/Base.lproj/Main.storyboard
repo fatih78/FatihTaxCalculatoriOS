@@ -15,33 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p3r-PR-s62">
-                                <rect key="frame" x="102" y="252" width="179" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sales Tax" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Icm-Of-osp">
-                                <rect key="frame" x="104" y="303" width="179" height="34"/>
+                                <rect key="frame" x="103" y="244" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-YO-yV2">
-                                <rect key="frame" x="104" y="375" width="78" height="27"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="CALCULATE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="calculateTotalPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gvs-5Z-czD"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Fatih's Tax Calculator" borderStyle="roundedRect" textAlignment="center" minimumFontSize="16" background="eurosign.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vl5-Vu-noI">
                                 <rect key="frame" x="83.5" y="59" width="247" height="38.5"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,29 +31,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVK-Lj-i3G">
-                                <rect key="frame" x="189" y="364" width="42" height="38"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="NL">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="calculateTotalPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DfB-8d-LGe"/>
-                                    <action selector="taxNL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oFb-F0-lX8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ER4-2g-fWk">
-                                <rect key="frame" x="240" y="364" width="42" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="FR">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="calculateTotalPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WFK-tk-c0h"/>
-                                    <action selector="taxFR:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CU0-Zo-jj6"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B6w-v8-oQA">
                                 <rect key="frame" x="103" y="202" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -92,15 +50,30 @@
                                 <rect key="frame" x="104" y="120.5" width="34" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5W-Y7-wSU">
-                                <rect key="frame" x="0.0" y="573" width="414" height="216"/>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5W-Y7-wSU">
+                                <rect key="frame" x="0.0" y="475" width="414" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="FWy-uj-1GX"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="z2b-VB-aps"/>
+                                </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB6-mx-nth">
-                                <rect key="frame" x="118" y="522" width="185" height="66"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-YO-yV2">
+                                <rect key="frame" x="152" y="167" width="78" height="27"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="CALCULATE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="calculateTotalPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gvs-5Z-czD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB6-mx-nth">
+                                <rect key="frame" x="76" y="415" width="262" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="A2N-mV-HcN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -112,12 +85,12 @@
                             <constraint firstItem="m5W-Y7-wSU" firstAttribute="top" secondItem="hB6-mx-nth" secondAttribute="bottom" constant="8" id="9ek-Dv-hZT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hB6-mx-nth" secondAttribute="trailing" constant="111" id="Gdz-Ce-mv8"/>
                             <constraint firstItem="hB6-mx-nth" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="118" id="IkX-9V-brN"/>
-                            <constraint firstItem="hB6-mx-nth" firstAttribute="top" secondItem="hYe-YO-yV2" secondAttribute="bottom" constant="97" id="Qf1-kf-ENN"/>
+                            <constraint firstItem="hB6-mx-nth" firstAttribute="top" secondItem="hYe-YO-yV2" secondAttribute="bottom" constant="145" id="Qf1-kf-ENN"/>
                             <constraint firstItem="m5W-Y7-wSU" firstAttribute="centerX" secondItem="Vl5-Vu-noI" secondAttribute="centerX" id="R3K-Wb-JHk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hB6-mx-nth" secondAttribute="bottom" constant="200" id="XGH-k3-CEf"/>
                             <constraint firstItem="m5W-Y7-wSU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aIy-s0-ANj"/>
                             <constraint firstItem="Vl5-Vu-noI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ewP-oi-kV2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m5W-Y7-wSU" secondAttribute="bottom" constant="73" id="mjD-Mz-GAb"/>
-                            <constraint firstItem="hB6-mx-nth" firstAttribute="centerX" secondItem="gVK-Lj-i3G" secondAttribute="centerX" id="pUu-jp-v1B"/>
                             <constraint firstItem="Vl5-Vu-noI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tDb-2d-nsF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -125,13 +98,10 @@
                     <connections>
                         <outlet property="appLabel" destination="Vl5-Vu-noI" id="NsU-fh-mGs"/>
                         <outlet property="calcButton" destination="hYe-YO-yV2" id="phu-Vc-hG8"/>
-                        <outlet property="country" destination="p3r-PR-s62" id="9j6-ec-lRj"/>
                         <outlet property="detail" destination="hB6-mx-nth" id="sCO-ru-flG"/>
                         <outlet property="pickerView" destination="m5W-Y7-wSU" id="m2A-tR-hsB"/>
                         <outlet property="priceTxt" destination="B6w-v8-oQA" id="AQd-Qr-bTb"/>
                         <outlet property="salesTaxTxt" destination="Icm-Of-osp" id="HRR-GR-mRR"/>
-                        <outlet property="taxFR" destination="ER4-2g-fWk" id="1hY-Qd-oYP"/>
-                        <outlet property="taxNL" destination="gVK-Lj-i3G" id="ndC-5h-Tr4"/>
                         <outlet property="totalPriceLbl" destination="QN1-bq-I6o" id="FaW-sz-i6o"/>
                     </connections>
                 </viewController>

@@ -8,9 +8,7 @@
 
 
 import UIKit
-
 extension UIViewController {
-    
     @IBAction func start (_ sender:AnyObject ){
         let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
 
@@ -35,7 +33,47 @@ extension UIViewController {
 }
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDataSource
+,UIPickerViewDelegate {
+    
+    @IBOutlet weak var detail: UILabel!
+    
+    @IBAction func detail(_ sender: Any) {
+        if ((detail.text?.isEqual("NL")) != nil){
+//            self.mmolTextField.text = "\(newValue)"
+
+//            self.salesTaxTxt.text?.removeAll()
+            self.salesTaxTxt.insertText("0.21")
+        }
+        if ((detail.text?.isEqual("FR")) != nil){
+//            salesTaxTxt.text?.removeAll()
+//            salesTaxTxt.insertText("0.21")
+//            self.salesTaxTxt.text?.removeAll()
+            self.salesTaxTxt.insertText("0.20")
+            
+        }
+    }
+    
+    
+    @IBOutlet weak var pickerView: UIPickerView!
+    let countries = ["NL", "FR"]
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return countries.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        return countries [row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        detail.text = countries[row]
+    }
 
     
     
@@ -74,8 +112,8 @@ class ViewController: UIViewController {
     @IBAction func taxNL(_ sender: Any) {
         salesTaxTxt.text?.removeAll()
         salesTaxTxt.insertText("0.21")
-        country.text?.removeAll()
-        country.insertText("Netherlands")
+//        country.text?.removeAll()
+//        country.insertText("Netherlands")
 
     }
     
@@ -89,8 +127,8 @@ class ViewController: UIViewController {
     @IBAction func taxFR(_ sender: Any) {
         salesTaxTxt.text?.removeAll()
         salesTaxTxt.insertText("0.20")
-        country.text?.removeAll()
-        country.insertText("France")
+//        country.text?.removeAll()
+//        country.insertText("France")
     }
     
     
@@ -107,11 +145,11 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var country: UITextField! {
-        didSet {
-            country.accessibilityIdentifier = "TaxCountry"
-        }
-    }
+//    @IBOutlet weak var country: UITextField! {
+//        didSet {
+//            country.accessibilityIdentifier = "TaxCountry"
+//        }
+//    }
     
     
     
@@ -179,7 +217,7 @@ class ViewController: UIViewController {
             super.viewDidLoad()
         // to set the label on a empty string by every load
             totalPriceLbl.text = ""
-            country.text = "empty"
+//            country.text = "empty"
             priceTxt.text = ""
             salesTaxTxt.text = "0.00"
         // hide keyboard with every load
@@ -190,11 +228,6 @@ class ViewController: UIViewController {
     
     @IBAction func handleSelection(_ sender: UIButton) {
     }
-    
-    
-    @IBOutlet weak var detail: UILabel!
-    
-    @IBOutlet weak var pickerView: UIPickerView!
     
     
 }
