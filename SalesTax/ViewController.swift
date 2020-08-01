@@ -36,16 +36,26 @@ extension UIViewController {
 class ViewController: UIViewController, UIPickerViewDataSource
 ,UIPickerViewDelegate {
     
-    @IBOutlet weak var detail: UILabel!
+    @IBOutlet weak var detail: UILabel! {
+        didSet {
+            detail.accessibilityIdentifier = "CountryLabel"
+        }
+    }
+    
+    @IBOutlet weak var salesTaxTxt: UITextField! {
+        didSet {
+            salesTaxTxt.accessibilityIdentifier = "SalesTax"
+        }
+    }
     
     @IBAction func detail(_ sender: Any) {
-        if ((detail.text?.isEqual("NL")) != nil){
+        if ((detail.text == "NL")){
 //            self.mmolTextField.text = "\(newValue)"
 
 //            self.salesTaxTxt.text?.removeAll()
             self.salesTaxTxt.insertText("0.21")
         }
-        if ((detail.text?.isEqual("FR")) != nil){
+        if (detail.text == "FR"){
 //            salesTaxTxt.text?.removeAll()
 //            salesTaxTxt.insertText("0.21")
 //            self.salesTaxTxt.text?.removeAll()
@@ -55,7 +65,12 @@ class ViewController: UIViewController, UIPickerViewDataSource
     }
     
     
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var pickerView: UIPickerView! {
+    didSet {
+        pickerView.accessibilityValue = "Picker"
+        }
+    }
+    
     let countries = ["NL", "FR"]
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -73,6 +88,13 @@ class ViewController: UIViewController, UIPickerViewDataSource
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         detail.text = countries[row]
+        if (countries[row] == "NL"){
+            self.salesTaxTxt.text?.removeAll()
+            salesTaxTxt.insertText("0.21")
+        } else {
+            self.salesTaxTxt.text?.removeAll()
+            salesTaxTxt.insertText("0.20")
+        }
     }
 
     
@@ -82,12 +104,6 @@ class ViewController: UIViewController, UIPickerViewDataSource
             priceTxt.accessibilityIdentifier = "Price"
         }
     
-    }
-    
-    @IBOutlet weak var salesTaxTxt: UITextField! {
-        didSet {
-            salesTaxTxt.accessibilityIdentifier = "SalesTax"
-        }
     }
     
     @IBOutlet weak var calcButton: UIButton! {
@@ -102,12 +118,7 @@ class ViewController: UIViewController, UIPickerViewDataSource
             }
         }
     
-    @IBOutlet weak var taxNL: UIButton! {
-    didSet {
-        taxNL.accessibilityIdentifier = "taxNL"
-        }
-        
-    }
+
     
     @IBAction func taxNL(_ sender: Any) {
         salesTaxTxt.text?.removeAll()

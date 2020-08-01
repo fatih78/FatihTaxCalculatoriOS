@@ -16,15 +16,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sales Tax" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Icm-Of-osp">
-                                <rect key="frame" x="103" y="244" width="179" height="34"/>
+                                <rect key="frame" x="103" y="317" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Fatih's Tax Calculator" borderStyle="roundedRect" textAlignment="center" minimumFontSize="16" background="eurosign.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vl5-Vu-noI">
-                                <rect key="frame" x="83.5" y="59" width="247" height="38.5"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Fatih's Tax Calculator" borderStyle="roundedRect" textAlignment="center" minimumFontSize="16" background="eurosign.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vl5-Vu-noI">
+                                <rect key="frame" x="73" y="38" width="247" height="38.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -32,7 +33,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B6w-v8-oQA">
-                                <rect key="frame" x="103" y="202" width="179" height="34"/>
+                                <rect key="frame" x="103" y="275" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,25 +41,27 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30.50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QN1-bq-I6o">
-                                <rect key="frame" x="131" y="111" width="121" height="58"/>
+                                <rect key="frame" x="136" y="140" width="121" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="eurosign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Fca-5n-ymI">
-                                <rect key="frame" x="104" y="120.5" width="34" height="39"/>
+                                <rect key="frame" x="104" y="137" width="20" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5W-Y7-wSU">
-                                <rect key="frame" x="0.0" y="475" width="414" height="216"/>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5W-Y7-wSU">
+                                <rect key="frame" x="0.0" y="349" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="FWy-uj-1GX"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="z2b-VB-aps"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-YO-yV2">
-                                <rect key="frame" x="152" y="167" width="78" height="27"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-YO-yV2">
+                                <rect key="frame" x="152" y="194" width="78" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="CALCULATE">
@@ -68,31 +71,16 @@
                                     <action selector="calculateTotalPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gvs-5Z-czD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB6-mx-nth">
-                                <rect key="frame" x="76" y="415" width="262" height="66"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="66" id="A2N-mV-HcN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB6-mx-nth">
+                                <rect key="frame" x="103" y="226" width="179" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Vl5-Vu-noI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="2a5-TD-pQb"/>
-                            <constraint firstItem="m5W-Y7-wSU" firstAttribute="top" secondItem="hB6-mx-nth" secondAttribute="bottom" constant="8" id="9ek-Dv-hZT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hB6-mx-nth" secondAttribute="trailing" constant="111" id="Gdz-Ce-mv8"/>
-                            <constraint firstItem="hB6-mx-nth" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="118" id="IkX-9V-brN"/>
-                            <constraint firstItem="hB6-mx-nth" firstAttribute="top" secondItem="hYe-YO-yV2" secondAttribute="bottom" constant="145" id="Qf1-kf-ENN"/>
-                            <constraint firstItem="m5W-Y7-wSU" firstAttribute="centerX" secondItem="Vl5-Vu-noI" secondAttribute="centerX" id="R3K-Wb-JHk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hB6-mx-nth" secondAttribute="bottom" constant="200" id="XGH-k3-CEf"/>
-                            <constraint firstItem="m5W-Y7-wSU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aIy-s0-ANj"/>
-                            <constraint firstItem="Vl5-Vu-noI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ewP-oi-kV2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m5W-Y7-wSU" secondAttribute="bottom" constant="73" id="mjD-Mz-GAb"/>
-                            <constraint firstItem="Vl5-Vu-noI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tDb-2d-nsF"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>

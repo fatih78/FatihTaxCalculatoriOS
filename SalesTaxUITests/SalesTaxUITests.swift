@@ -16,7 +16,7 @@ class SalesTaxUITests: XCTestCase {
     
     let button = XCUIApplication().buttons["CALCULATE"]
     let eurosign = XCUIApplication().images["EuroSign"]
-    let taxCountry = XCUIApplication().textFields["TaxCountry"]
+    let taxCountry = XCUIApplication().textFields["Select Country"]
     let priceLabel = XCUIApplication().textFields ["Price"]
     let taxLabel = XCUIApplication().textFields ["SalesTax"]
     let totalLabel = XCUIApplication().staticTexts["TotalPrice"]
@@ -24,10 +24,10 @@ class SalesTaxUITests: XCTestCase {
     let taxButtonFR = XCUIApplication().buttons["FR"]
     let taxButtonNL = XCUIApplication().buttons["NL"]
     let alert = XCUIApplication().alerts["Error"]
+    let dropdown = XCUIApplication().accessibilityValue("Picker")
 
 
-    
-    
+
     
     override func setUp() {
         super.setUp()
@@ -49,14 +49,14 @@ class SalesTaxUITests: XCTestCase {
         XCTAssertTrue(taxLabel.exists)
         XCTAssertNotNil(totalLabel)
         XCTAssertTrue(totalLabel.exists)
-        XCTAssertTrue(taxCountry.exists)
-        
+        XCTAssertNotNil(taxCountry)
+
     }
     
      func testPriceAlertMessage() {
     
          priceLabel.tap()
-         priceLabel.typeText("0").self
+         priceLabel.typeText("-1").self
          button.tap()
          XCTAssertTrue(alert.exists)
 
