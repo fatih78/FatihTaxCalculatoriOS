@@ -6,6 +6,7 @@
 //  Copyright © 2020 Fatih Topcuoglu. All rights reserved.
 //
 
+
 import UIKit
 
 extension UIViewController {
@@ -122,8 +123,8 @@ class ViewController: UIViewController {
         }))
         
     //  let is an variable, we need to convert text into number with 'Double' > decimals
-        let price = Double(priceTxt.text!)!
-        if price.isLess(than: 1.00) == true {
+       let price = Double(priceTxt.text!)!
+        if price.isLess(than: 0.00) == true {
             present(alert, animated: true, completion: nil)
         }
         
@@ -187,6 +188,8 @@ class ViewController: UIViewController {
     //     self.okButton.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
         }
     
+    @IBAction func handleSelection(_ sender: UIButton) {
+    }
 }
 
 
