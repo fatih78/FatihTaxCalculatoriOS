@@ -31,9 +31,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-YO-yV2">
-                                <rect key="frame" x="104" y="364" width="78" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-YO-yV2">
+                                <rect key="frame" x="104" y="375" width="78" height="27"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="CALCULATE">
@@ -51,9 +50,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVK-Lj-i3G">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVK-Lj-i3G">
                                 <rect key="frame" x="189" y="364" width="42" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="NL">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,12 +92,32 @@
                                 <rect key="frame" x="104" y="120.5" width="34" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5W-Y7-wSU">
+                                <rect key="frame" x="0.0" y="573" width="414" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB6-mx-nth">
+                                <rect key="frame" x="118" y="522" width="185" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="A2N-mV-HcN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Vl5-Vu-noI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="2a5-TD-pQb"/>
+                            <constraint firstItem="m5W-Y7-wSU" firstAttribute="top" secondItem="hB6-mx-nth" secondAttribute="bottom" constant="8" id="9ek-Dv-hZT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hB6-mx-nth" secondAttribute="trailing" constant="111" id="Gdz-Ce-mv8"/>
+                            <constraint firstItem="hB6-mx-nth" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="118" id="IkX-9V-brN"/>
+                            <constraint firstItem="hB6-mx-nth" firstAttribute="top" secondItem="hYe-YO-yV2" secondAttribute="bottom" constant="97" id="Qf1-kf-ENN"/>
+                            <constraint firstItem="m5W-Y7-wSU" firstAttribute="centerX" secondItem="Vl5-Vu-noI" secondAttribute="centerX" id="R3K-Wb-JHk"/>
+                            <constraint firstItem="m5W-Y7-wSU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aIy-s0-ANj"/>
                             <constraint firstItem="Vl5-Vu-noI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ewP-oi-kV2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m5W-Y7-wSU" secondAttribute="bottom" constant="73" id="mjD-Mz-GAb"/>
+                            <constraint firstItem="hB6-mx-nth" firstAttribute="centerX" secondItem="gVK-Lj-i3G" secondAttribute="centerX" id="pUu-jp-v1B"/>
                             <constraint firstItem="Vl5-Vu-noI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tDb-2d-nsF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -108,6 +126,8 @@
                         <outlet property="appLabel" destination="Vl5-Vu-noI" id="NsU-fh-mGs"/>
                         <outlet property="calcButton" destination="hYe-YO-yV2" id="phu-Vc-hG8"/>
                         <outlet property="country" destination="p3r-PR-s62" id="9j6-ec-lRj"/>
+                        <outlet property="detail" destination="hB6-mx-nth" id="sCO-ru-flG"/>
+                        <outlet property="pickerView" destination="m5W-Y7-wSU" id="m2A-tR-hsB"/>
                         <outlet property="priceTxt" destination="B6w-v8-oQA" id="AQd-Qr-bTb"/>
                         <outlet property="salesTaxTxt" destination="Icm-Of-osp" id="HRR-GR-mRR"/>
                         <outlet property="taxFR" destination="ER4-2g-fWk" id="1hY-Qd-oYP"/>

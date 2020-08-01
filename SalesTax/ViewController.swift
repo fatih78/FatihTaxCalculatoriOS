@@ -190,6 +190,13 @@ class ViewController: UIViewController {
     
     @IBAction func handleSelection(_ sender: UIButton) {
     }
+    
+    
+    @IBOutlet weak var detail: UILabel!
+    
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    
 }
 
 
