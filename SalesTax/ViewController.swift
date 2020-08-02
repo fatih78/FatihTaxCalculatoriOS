@@ -36,11 +36,6 @@ extension UIViewController {
 class ViewController: UIViewController, UIPickerViewDataSource
 ,UIPickerViewDelegate {
     
-    @IBOutlet weak var detail: UILabel! {
-        didSet {
-            detail.accessibilityIdentifier = "CountryLabel"
-        }
-    }
     
     @IBOutlet weak var salesTaxTxt: UITextField! {
         didSet {
@@ -48,21 +43,21 @@ class ViewController: UIViewController, UIPickerViewDataSource
         }
     }
     
-    @IBAction func detail(_ sender: Any) {
-        if ((detail.text == "NL")){
-//            self.mmolTextField.text = "\(newValue)"
-
-//            self.salesTaxTxt.text?.removeAll()
-            self.salesTaxTxt.insertText("0.21")
-        }
-        if (detail.text == "FR"){
-//            salesTaxTxt.text?.removeAll()
-//            salesTaxTxt.insertText("0.21")
-//            self.salesTaxTxt.text?.removeAll()
-            self.salesTaxTxt.insertText("0.20")
-            
-        }
-    }
+//    @IBAction func detail(_ sender: Any) {
+//        if ((detail.text == "NL")){
+////            self.mmolTextField.text = "\(newValue)"
+//
+////            self.salesTaxTxt.text?.removeAll()
+//            self.salesTaxTxt.insertText("0.21")
+//        }
+//        if (detail.text == "FR"){
+////            salesTaxTxt.text?.removeAll()
+////            salesTaxTxt.insertText("0.21")
+////            self.salesTaxTxt.text?.removeAll()
+//            self.salesTaxTxt.insertText("0.20")
+//
+//        }
+//    }
     
     
     @IBOutlet weak var pickerView: UIPickerView! {
@@ -71,7 +66,7 @@ class ViewController: UIViewController, UIPickerViewDataSource
         }
     }
     
-    let countries = ["NL", "FR"]
+    var countries = ["NL", "FR"]
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -86,14 +81,22 @@ class ViewController: UIViewController, UIPickerViewDataSource
         return countries [row]
     }
     
+    @IBOutlet weak var detail: UILabel! {
+        didSet {
+            detail.accessibilityIdentifier = "CountryLabel"
+        }
+    }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         detail.text = countries[row]
         if (countries[row] == "NL"){
             self.salesTaxTxt.text?.removeAll()
             salesTaxTxt.insertText("0.21")
-        } else {
-            self.salesTaxTxt.text?.removeAll()
-            salesTaxTxt.insertText("0.20")
+            detail.text = "Netherlands"
+        } else if (countries[row] == "FR") {
+                self.salesTaxTxt.text?.removeAll()
+                salesTaxTxt.insertText("0.20")
+                detail.text = "France"
         }
     }
 
