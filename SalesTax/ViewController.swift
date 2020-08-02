@@ -115,8 +115,6 @@ class ViewController: UIViewController, UIPickerViewDataSource
     @IBAction func taxNL(_ sender: Any) {
         salesTaxTxt.text?.removeAll()
         salesTaxTxt.insertText("0.21")
-//        country.text?.removeAll()
-//        country.insertText("Netherlands")
 
     }
     
@@ -130,8 +128,7 @@ class ViewController: UIViewController, UIPickerViewDataSource
     @IBAction func taxFR(_ sender: Any) {
         salesTaxTxt.text?.removeAll()
         salesTaxTxt.insertText("0.20")
-//        country.text?.removeAll()
-//        country.insertText("France")
+
     }
     
     
@@ -148,11 +145,6 @@ class ViewController: UIViewController, UIPickerViewDataSource
         }
     }
     
-//    @IBOutlet weak var country: UITextField! {
-//        didSet {
-//            country.accessibilityIdentifier = "TaxCountry"
-//        }
-//    }
     
     
     
@@ -220,7 +212,6 @@ class ViewController: UIViewController, UIPickerViewDataSource
             super.viewDidLoad()
         // to set the label on a empty string by every load
             totalPriceLbl.text = ""
-//            country.text = "empty"
             priceTxt.text = ""
             salesTaxTxt.text = "0.00"
         // hide keyboard with every load
