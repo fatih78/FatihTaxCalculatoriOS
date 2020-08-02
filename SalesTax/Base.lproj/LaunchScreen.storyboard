@@ -22,11 +22,11 @@
                                     <constraint firstAttribute="height" constant="200" id="kae-mh-E0f"/>
                                 </constraints>
                                 <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wjf-Ka-WTh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="FL1-JV-X88"/>
                             <constraint firstItem="wjf-Ka-WTh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VEz-Nx-fkk"/>

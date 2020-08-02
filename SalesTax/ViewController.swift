@@ -6,10 +6,9 @@
 //  Copyright © 2020 Fatih Topcuoglu. All rights reserved.
 //
 
-import UIKit
 
+import UIKit
 extension UIViewController {
-    
     @IBAction func start (_ sender:AnyObject ){
         let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
 
@@ -34,7 +33,61 @@ extension UIViewController {
 }
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDataSource
+,UIPickerViewDelegate {
+    
+    
+    @IBOutlet weak var salesTaxTxt: UITextField! {
+        didSet {
+            salesTaxTxt.accessibilityIdentifier = "SalesTax"
+        }
+    }
+    
+    
+    
+    @IBOutlet weak var pickerView: UIPickerView! {
+    didSet {
+        pickerView.accessibilityIdentifier = "Picker"
+        }
+    }
+    
+    var countries = ["Select Country", "DE", "FR", "NL",]
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return countries.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        return countries [row]
+    }
+    
+    @IBOutlet weak var detail: UILabel! {
+        didSet {
+            detail.accessibilityIdentifier = "CountryLabel"
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        detail.text = countries[row]
+        if (countries[row] == "NL"){
+            self.salesTaxTxt.text?.removeAll()
+            salesTaxTxt.insertText("0.21")
+            detail.text = "Netherlands"
+        } else if (countries[row] == "FR") {
+                self.salesTaxTxt.text?.removeAll()
+                salesTaxTxt.insertText("0.20")
+                detail.text = "France"
+        } else if (countries[row] == "DE") {
+                self.salesTaxTxt.text?.removeAll()
+                salesTaxTxt.insertText("0.25")
+                detail.text = "Denmark"
+        }
+    }
 
     
     
@@ -43,12 +96,6 @@ class ViewController: UIViewController {
             priceTxt.accessibilityIdentifier = "Price"
         }
     
-    }
-    
-    @IBOutlet weak var salesTaxTxt: UITextField! {
-        didSet {
-            salesTaxTxt.accessibilityIdentifier = "SalesTax"
-        }
     }
     
     @IBOutlet weak var calcButton: UIButton! {
@@ -63,18 +110,13 @@ class ViewController: UIViewController {
             }
         }
     
-    @IBOutlet weak var taxNL: UIButton! {
-    didSet {
-        taxNL.accessibilityIdentifier = "taxNL"
-        }
-        
-    }
+
     
     @IBAction func taxNL(_ sender: Any) {
         salesTaxTxt.text?.removeAll()
         salesTaxTxt.insertText("0.21")
-        country.text?.removeAll()
-        country.insertText("Netherlands")
+//        country.text?.removeAll()
+//        country.insertText("Netherlands")
 
     }
     
@@ -88,8 +130,8 @@ class ViewController: UIViewController {
     @IBAction func taxFR(_ sender: Any) {
         salesTaxTxt.text?.removeAll()
         salesTaxTxt.insertText("0.20")
-        country.text?.removeAll()
-        country.insertText("France")
+//        country.text?.removeAll()
+//        country.insertText("France")
     }
     
     
@@ -106,24 +148,24 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var country: UITextField! {
-        didSet {
-            country.accessibilityIdentifier = "TaxCountry"
-        }
-    }
+//    @IBOutlet weak var country: UITextField! {
+//        didSet {
+//            country.accessibilityIdentifier = "TaxCountry"
+//        }
+//    }
     
     
     
     @IBAction func calculateTotalPrice(_ sender: Any) {
     //creating alert in case of empty values
-        let alert = UIAlertController(title: "Error", message: "Can't be empty", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: "Number can't be negative", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             print("OK is pressed")
         }))
         
     //  let is an variable, we need to convert text into number with 'Double' > decimals
-        let price = Double(priceTxt.text!)!
-        if price.isLess(than: 1.00) == true {
+       let price = Double(priceTxt.text!)!
+        if price.isLess(than: 0.00) == true {
             present(alert, animated: true, completion: nil)
         }
         
@@ -178,7 +220,7 @@ class ViewController: UIViewController {
             super.viewDidLoad()
         // to set the label on a empty string by every load
             totalPriceLbl.text = ""
-            country.text = "empty"
+//            country.text = "empty"
             priceTxt.text = ""
             salesTaxTxt.text = "0.00"
         // hide keyboard with every load
@@ -186,6 +228,10 @@ class ViewController: UIViewController {
             view.backgroundColor = .lightGray
     //     self.okButton.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
         }
+    
+    @IBAction func handleSelection(_ sender: UIButton) {
+    }
+    
     
 }
 

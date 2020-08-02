@@ -16,7 +16,7 @@ class SalesTaxUITests: XCTestCase {
     
     let button = XCUIApplication().buttons["CALCULATE"]
     let eurosign = XCUIApplication().images["EuroSign"]
-    let taxCountry = XCUIApplication().textFields["TaxCountry"]
+    let taxCountry = XCUIApplication().textFields["Select Country"]
     let priceLabel = XCUIApplication().textFields ["Price"]
     let taxLabel = XCUIApplication().textFields ["SalesTax"]
     let totalLabel = XCUIApplication().staticTexts["TotalPrice"]
@@ -24,10 +24,10 @@ class SalesTaxUITests: XCTestCase {
     let taxButtonFR = XCUIApplication().buttons["FR"]
     let taxButtonNL = XCUIApplication().buttons["NL"]
     let alert = XCUIApplication().alerts["Error"]
+    let dropdown = XCUIApplication().pickers
 
 
-    
-    
+
     
     override func setUp() {
         super.setUp()
@@ -49,14 +49,15 @@ class SalesTaxUITests: XCTestCase {
         XCTAssertTrue(taxLabel.exists)
         XCTAssertNotNil(totalLabel)
         XCTAssertTrue(totalLabel.exists)
-        XCTAssertTrue(taxCountry.exists)
-        
+        XCTAssertNotNil(taxCountry)
+        XCTAssertNotNil(dropdown)
+
     }
     
      func testPriceAlertMessage() {
     
          priceLabel.tap()
-         priceLabel.typeText("0").self
+         priceLabel.typeText("-1").self
          button.tap()
          XCTAssertTrue(alert.exists)
 
@@ -66,7 +67,7 @@ class SalesTaxUITests: XCTestCase {
    
         priceLabel.tap()
         priceLabel.typeText("200")
-        taxButtonFR.tap()
+        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "FR")
         button.tap()
         
         if let contentTotal = totalLabel.value as? Double {
@@ -78,11 +79,24 @@ class SalesTaxUITests: XCTestCase {
         
         priceLabel.tap()
         priceLabel.typeText("200")
-        taxButtonNL.tap()
+        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "NL")
         button.tap()
         
         if let contentTotal = totalLabel.value as? Double {
             XCTAssert(contentTotal.isEqual(to: 242.00))
+        }
+        
+    }
+    
+    func testTaxCalculationDenmark() {
+        
+        priceLabel.tap()
+        priceLabel.typeText("200")
+        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "DE")
+        button.tap()
+        
+        if let contentTotal = totalLabel.value as? Double {
+            XCTAssert(contentTotal.isEqual(to: 250.00))
         }
         
     }
