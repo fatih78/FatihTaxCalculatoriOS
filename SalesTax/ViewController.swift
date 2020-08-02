@@ -66,7 +66,7 @@ class ViewController: UIViewController, UIPickerViewDataSource
         }
     }
     
-    var countries = ["NL", "FR"]
+    var countries = ["Select Country", "DE", "FR", "NL",]
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -97,6 +97,10 @@ class ViewController: UIViewController, UIPickerViewDataSource
                 self.salesTaxTxt.text?.removeAll()
                 salesTaxTxt.insertText("0.20")
                 detail.text = "France"
+        } else if (countries[row] == "DE") {
+                self.salesTaxTxt.text?.removeAll()
+                salesTaxTxt.insertText("0.25")
+                detail.text = "Denmark"
         }
     }
 

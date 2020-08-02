@@ -24,7 +24,7 @@ class SalesTaxUITests: XCTestCase {
     let taxButtonFR = XCUIApplication().buttons["FR"]
     let taxButtonNL = XCUIApplication().buttons["NL"]
     let alert = XCUIApplication().alerts["Error"]
-    let dropdown = XCUIApplication().accessibilityValue("Picker")
+    let dropdown = XCUIApplication().pickers
 
 
 
@@ -50,6 +50,7 @@ class SalesTaxUITests: XCTestCase {
         XCTAssertNotNil(totalLabel)
         XCTAssertTrue(totalLabel.exists)
         XCTAssertNotNil(taxCountry)
+        XCTAssertNotNil(dropdown)
 
     }
     
@@ -66,7 +67,7 @@ class SalesTaxUITests: XCTestCase {
    
         priceLabel.tap()
         priceLabel.typeText("200")
-        taxButtonFR.tap()
+        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "FR")
         button.tap()
         
         if let contentTotal = totalLabel.value as? Double {
@@ -78,11 +79,24 @@ class SalesTaxUITests: XCTestCase {
         
         priceLabel.tap()
         priceLabel.typeText("200")
-        taxButtonNL.tap()
+        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "NL")
         button.tap()
         
         if let contentTotal = totalLabel.value as? Double {
             XCTAssert(contentTotal.isEqual(to: 242.00))
+        }
+        
+    }
+    
+    func testTaxCalculationDenmark() {
+        
+        priceLabel.tap()
+        priceLabel.typeText("200")
+        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "DE")
+        button.tap()
+        
+        if let contentTotal = totalLabel.value as? Double {
+            XCTAssert(contentTotal.isEqual(to: 250.00))
         }
         
     }
