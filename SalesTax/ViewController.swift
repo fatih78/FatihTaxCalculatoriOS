@@ -43,26 +43,11 @@ class ViewController: UIViewController, UIPickerViewDataSource
         }
     }
     
-//    @IBAction func detail(_ sender: Any) {
-//        if ((detail.text == "NL")){
-////            self.mmolTextField.text = "\(newValue)"
-//
-////            self.salesTaxTxt.text?.removeAll()
-//            self.salesTaxTxt.insertText("0.21")
-//        }
-//        if (detail.text == "FR"){
-////            salesTaxTxt.text?.removeAll()
-////            salesTaxTxt.insertText("0.21")
-////            self.salesTaxTxt.text?.removeAll()
-//            self.salesTaxTxt.insertText("0.20")
-//
-//        }
-//    }
     
     
     @IBOutlet weak var pickerView: UIPickerView! {
     didSet {
-        pickerView.accessibilityValue = "Picker"
+        pickerView.accessibilityIdentifier = "Picker"
         }
     }
     
@@ -173,7 +158,7 @@ class ViewController: UIViewController, UIPickerViewDataSource
     
     @IBAction func calculateTotalPrice(_ sender: Any) {
     //creating alert in case of empty values
-        let alert = UIAlertController(title: "Error", message: "Can't be empty", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: "Number can't be negative", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             print("OK is pressed")
         }))
