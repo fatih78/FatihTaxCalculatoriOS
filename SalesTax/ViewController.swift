@@ -51,7 +51,7 @@ class ViewController: UIViewController, UIPickerViewDataSource
         }
     }
     
-    var countries = ["Select", "DE", "FR", "NL"]
+    var countries = ["Select Country", "DE", "FR", "NL"]
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -83,7 +83,7 @@ class ViewController: UIViewController, UIPickerViewDataSource
             let imageName = "netherlands.png"
             let image = UIImage(named: imageName)
             let imageView = UIImageView(image: image!)
-            imageView.frame = CGRect(x: 85, y: 90, width: 40, height: 40)
+            imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
             self.view.addSubview(imageView)
             self.view.bringSubviewToFront(imageView)
 
@@ -95,7 +95,7 @@ class ViewController: UIViewController, UIPickerViewDataSource
                 let imageName = "france.png"
                 let image = UIImage(named: imageName)
                 let imageView = UIImageView(image: image!)
-                imageView.frame = CGRect(x: 85, y: 90, width: 40, height: 40)
+                imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
                 self.view.addSubview(imageView)
                 self.view.bringSubviewToFront(imageView)
         } else if (countries[row] == "DE") {
@@ -106,18 +106,18 @@ class ViewController: UIViewController, UIPickerViewDataSource
                 let imageName = "denmark.png"
                 let image = UIImage(named: imageName)
                 let imageView = UIImageView(image: image!)
-                imageView.frame = CGRect(x: 85, y: 90, width: 40, height: 40)
+                imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
                 self.view.addSubview(imageView)
                 self.view.bringSubviewToFront(imageView)
         } else {
                 self.salesTaxTxt.text?.removeAll()
                 salesTaxTxt.insertText("0.00")
-                detail.text = "Select"
+                detail.text = "Select Country"
                 //Imageview on Top of View
                  let imageName = "world.png"
                  let image = UIImage(named: imageName)
                  let imageView = UIImageView(image: image!)
-                 imageView.frame = CGRect(x: 85, y: 90, width: 40, height: 40)
+                 imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
                  self.view.addSubview(imageView)
                  self.view.bringSubviewToFront(imageView)
 
@@ -253,6 +253,13 @@ class ViewController: UIViewController, UIPickerViewDataSource
             self.HideKeyboard()
             view.backgroundColor = .lightGray
     //     self.okButton.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
+            //Imageview on Top of View
+             let imageName = "world.png"
+             let image = UIImage(named: imageName)
+             let imageView = UIImageView(image: image!)
+             imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
+             self.view.addSubview(imageView)
+             self.view.bringSubviewToFront(imageView)
         }
     
     @IBAction func handleSelection(_ sender: UIButton) {
