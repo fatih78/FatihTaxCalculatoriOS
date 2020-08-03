@@ -51,7 +51,7 @@ class ViewController: UIViewController, UIPickerViewDataSource
         }
     }
     
-    var countries = ["Select Country", "DE", "FR", "NL",]
+    var countries = ["Select", "DE", "FR", "NL"]
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -72,20 +72,55 @@ class ViewController: UIViewController, UIPickerViewDataSource
         }
     }
     
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         detail.text = countries[row]
         if (countries[row] == "NL"){
             self.salesTaxTxt.text?.removeAll()
             salesTaxTxt.insertText("0.21")
             detail.text = "Netherlands"
+            //Imageview on Top of View
+            let imageName = "netherlands.png"
+            let image = UIImage(named: imageName)
+            let imageView = UIImageView(image: image!)
+            imageView.frame = CGRect(x: 85, y: 90, width: 40, height: 40)
+            self.view.addSubview(imageView)
+            self.view.bringSubviewToFront(imageView)
+
         } else if (countries[row] == "FR") {
                 self.salesTaxTxt.text?.removeAll()
                 salesTaxTxt.insertText("0.20")
                 detail.text = "France"
+                //Imageview on Top of View
+                let imageName = "france.png"
+                let image = UIImage(named: imageName)
+                let imageView = UIImageView(image: image!)
+                imageView.frame = CGRect(x: 85, y: 90, width: 40, height: 40)
+                self.view.addSubview(imageView)
+                self.view.bringSubviewToFront(imageView)
         } else if (countries[row] == "DE") {
                 self.salesTaxTxt.text?.removeAll()
                 salesTaxTxt.insertText("0.25")
                 detail.text = "Denmark"
+                //Imageview on Top of View
+                let imageName = "denmark.png"
+                let image = UIImage(named: imageName)
+                let imageView = UIImageView(image: image!)
+                imageView.frame = CGRect(x: 85, y: 90, width: 40, height: 40)
+                self.view.addSubview(imageView)
+                self.view.bringSubviewToFront(imageView)
+        } else {
+                self.salesTaxTxt.text?.removeAll()
+                salesTaxTxt.insertText("0.00")
+                detail.text = "Select"
+                //Imageview on Top of View
+                 let imageName = "world.png"
+                 let image = UIImage(named: imageName)
+                 let imageView = UIImageView(image: image!)
+                 imageView.frame = CGRect(x: 85, y: 90, width: 40, height: 40)
+                 self.view.addSubview(imageView)
+                 self.view.bringSubviewToFront(imageView)
+
         }
     }
 

@@ -67,7 +67,7 @@ class SalesTaxUITests: XCTestCase {
    
         priceLabel.tap()
         priceLabel.typeText("200")
-        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "FR")
+        application.pickerWheels["Select"].adjust(toPickerWheelValue: "FR")
         button.tap()
         
         if let contentTotal = totalLabel.value as? Double {
@@ -79,7 +79,7 @@ class SalesTaxUITests: XCTestCase {
         
         priceLabel.tap()
         priceLabel.typeText("200")
-        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "NL")
+        application.pickerWheels["Select"].adjust(toPickerWheelValue: "NL")
         button.tap()
         
         if let contentTotal = totalLabel.value as? Double {
@@ -92,7 +92,7 @@ class SalesTaxUITests: XCTestCase {
         
         priceLabel.tap()
         priceLabel.typeText("200")
-        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "DE")
+        application.pickerWheels["Select"].adjust(toPickerWheelValue: "DE")
         button.tap()
         
         if let contentTotal = totalLabel.value as? Double {
