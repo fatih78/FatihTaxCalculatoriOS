@@ -206,7 +206,7 @@ class ViewController: UIViewController, UIPickerViewDataSource
         let totalPrice = price + totalSalesTax
         
     //  we're converting a number into a string > string interpolation
-        totalPriceLbl.text = "\(totalPrice)"
+        totalPriceLbl.text = "€\(totalPrice)"
     }
     
     
