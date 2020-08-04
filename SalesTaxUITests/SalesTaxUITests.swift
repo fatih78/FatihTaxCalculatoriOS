@@ -53,10 +53,19 @@ class SalesTaxUITests: XCTestCase {
 
     }
     
-     func testPriceAlertMessage() {
+     func testPriceAlertMessageNegativeNumber() {
     
          priceLabel.tap()
          priceLabel.typeText("-1").self
+         button.tap()
+         XCTAssertTrue(alert.exists)
+
+     }
+    
+     func testPriceAlertMessageZeroNumber() {
+    
+         priceLabel.tap()
+         priceLabel.typeText("0").self
          button.tap()
          XCTAssertTrue(alert.exists)
 
