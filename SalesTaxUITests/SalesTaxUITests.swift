@@ -15,7 +15,6 @@ class SalesTaxUITests: XCTestCase {
     let application:XCUIApplication = XCUIApplication()
     
     let button = XCUIApplication().buttons["CALCULATE"]
-//    let eurosign = XCUIApplication().images["EuroSign"]
     let taxCountry = XCUIApplication().textFields["Select Country"]
     let priceLabel = XCUIApplication().textFields ["Price"]
     let taxLabel = XCUIApplication().textFields ["SalesTax"]
