@@ -43,15 +43,47 @@ class ViewController: UIViewController, UIPickerViewDataSource
         }
     }
     
+    @IBOutlet weak var salesTaxTxt2: UITextField!{
+        didSet {
+            salesTaxTxt2.accessibilityIdentifier = "SalesTax2"
+        }
+    }
     
+    
+    
+
+    //    pickerView2
+    var countries2 = ["Select Country", "DE", "FR", "NL"]
+    
+    @IBOutlet weak var pickerView2: UIPickerView!{
+        didSet {
+            pickerView2.accessibilityIdentifier = "Picker2"
+            }
+    }
+    
+    func numberOfComponents2(in pickerView2: UIPickerView) -> Int {
+            return 1
+        }
+    
+    func pickerView2(_ pickerView2: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return countries2.count
+    }
+    
+    
+    func pickerView2(_ pickerView2: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        return countries2 [row]
+    }
+    
+    
+//    pickerView1
+    var countries = ["Select Country", "DE", "FR", "NL"]
     
     @IBOutlet weak var pickerView: UIPickerView! {
     didSet {
         pickerView.accessibilityIdentifier = "Picker"
         }
     }
-    
-    var countries = ["Select Country", "DE", "FR", "NL"]
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -66,11 +98,20 @@ class ViewController: UIViewController, UIPickerViewDataSource
         return countries [row]
     }
     
+
+//  Detail
     @IBOutlet weak var detail: UILabel! {
         didSet {
             detail.accessibilityIdentifier = "CountryLabel"
         }
     }
+    
+    @IBOutlet weak var detail2: UILabel!{
+        didSet {
+            detail2.accessibilityIdentifier = "CountryLabel2"
+        }
+    }
+//
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -123,21 +164,89 @@ class ViewController: UIViewController, UIPickerViewDataSource
 
         }
     }
+    
+
+
+    func pickerView2(_ pickerView2: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        detail2.text = countries2[row]
+        if (countries2[row] == "NL"){
+            self.salesTaxTxt2.text?.removeAll()
+            salesTaxTxt2.insertText("0.21")
+            detail2.text = "Netherlands"
+            //Imageview on Top of View
+            let imageName = "netherlands.png"
+            let image = UIImage(named: imageName)
+            let imageView = UIImageView(image: image!)
+            imageView.frame = CGRect(x: 95, y: 45, width: 40, height: 40)
+            self.view.addSubview(imageView)
+            self.view.bringSubviewToFront(imageView)
+
+        } else if (countries2[row] == "FR") {
+                self.salesTaxTxt2.text?.removeAll()
+                salesTaxTxt2.insertText("0.20")
+                detail2.text = "France"
+                //Imageview on Top of View
+                let imageName = "france.png"
+                let image = UIImage(named: imageName)
+                let imageView = UIImageView(image: image!)
+                imageView.frame = CGRect(x: 95, y: 45, width: 40, height: 40)
+                self.view.addSubview(imageView)
+                self.view.bringSubviewToFront(imageView)
+        } else if (countries2[row] == "DE") {
+                self.salesTaxTxt2.text?.removeAll()
+                salesTaxTxt2.insertText("0.25")
+                detail2.text = "Denmark"
+                //Imageview on Top of View
+                let imageName = "denmark.png"
+                let image = UIImage(named: imageName)
+                let imageView = UIImageView(image: image!)
+                imageView.frame = CGRect(x: 95, y: 45, width: 40, height: 40)
+                self.view.addSubview(imageView)
+                self.view.bringSubviewToFront(imageView)
+        } else {
+                self.salesTaxTxt2.text?.removeAll()
+                salesTaxTxt2.insertText("0.00")
+                detail2.text = "Select Country"
+                //Imageview on Top of View
+                 let imageName = "world.png"
+                 let image = UIImage(named: imageName)
+                 let imageView = UIImageView(image: image!)
+                 imageView.frame = CGRect(x: 95, y: 45, width: 40, height: 40)
+                 self.view.addSubview(imageView)
+                 self.view.bringSubviewToFront(imageView)
+
+        }
+    }
 
     
-    
+//    Price Field
     @IBOutlet weak var priceTxt: UITextField! {
         didSet {
             priceTxt.accessibilityIdentifier = "Price"
         }
-    
     }
     
+    @IBOutlet weak var priceTxt2: UITextField! {
+        didSet {
+            priceTxt2.accessibilityIdentifier = "Price2"
+        }
+    }
+//
+    
+//  Calc Button
     @IBOutlet weak var calcButton: UIButton! {
         didSet {
             calcButton.accessibilityIdentifier = "Calculator"
         }
     }
+    
+    @IBOutlet weak var calcButton2: UIButton!{
+        didSet {
+            calcButton2.accessibilityIdentifier = "Calculator"
+        }
+    }
+//
+    
     
     @IBOutlet weak var okButton: UIButton! {
         didSet {
@@ -173,7 +282,13 @@ class ViewController: UIViewController, UIPickerViewDataSource
         }
     }
     
-
+    @IBOutlet weak var totalPriceLbl2: UILabel!{
+        didSet {
+            totalPriceLbl2.accessibilityIdentifier = "TotalPrice2"
+        }
+    }
+    
+    
     @IBOutlet weak var appLabel: UITextField! {
         didSet {
             appLabel.accessibilityIdentifier = "AppLabel"
@@ -210,6 +325,31 @@ class ViewController: UIViewController, UIPickerViewDataSource
     }
     
     
+    @IBAction func calculateTotalPrice2(_ sender: Any) {
+        let alert = UIAlertController(title: "Error", message: "Please enter valid number!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            print("OK is pressed")
+            // after pressing OK button the totalPrice field is cleared
+            self.totalPriceLbl.text?.removeAll()
+        }))
+        
+        //  let is an variable, we need to convert text into number with 'Double' > decimals
+            let price2 = Double(priceTxt2.text!)!
+            let salesTax2 = Double(salesTaxTxt2.text!)!
+        
+        if (price2.isLess(than: 0.00) == true || price2.isEqual(to: 0)) {
+            present(alert, animated: true, completion: nil)
+        } else if (salesTax2.isLess(than: 0.00) == true || salesTax2.isEqual(to: 0)) {
+            present(alert, animated: true, completion: nil)
+        }
+        
+        
+        let totalSalesTax2 = price2 * salesTax2
+        let totalPrice2 = price2 + totalSalesTax2
+        
+        //  we're converting a number into a string > string interpolation
+        totalPriceLbl2.text = "€\(totalPrice2)"
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         createMessage(title: "Test", message: "Test is Starting")
