@@ -143,6 +143,7 @@
                         <outlet property="pickerView" destination="m5W-Y7-wSU" id="m2A-tR-hsB"/>
                         <outlet property="pickerView2" destination="oM6-ad-05d" id="AGZ-Yc-oWJ"/>
                         <outlet property="priceTxt" destination="B6w-v8-oQA" id="AQd-Qr-bTb"/>
+                        <outlet property="priceTxt2" destination="rRK-DI-HOY" id="GZb-8T-Cfk"/>
                         <outlet property="salesTaxTxt" destination="Icm-Of-osp" id="HRR-GR-mRR"/>
                         <outlet property="salesTaxTxt2" destination="xPS-pH-B0N" id="OcG-DV-dbc"/>
                         <outlet property="totalPriceLbl" destination="QN1-bq-I6o" id="FaW-sz-i6o"/>
