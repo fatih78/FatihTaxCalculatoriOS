@@ -15,6 +15,7 @@
 		C381360624C19D41006D9391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C381360424C19D41006D9391 /* LaunchScreen.storyboard */; };
 		C381361124C19D41006D9391 /* SalesTaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381361024C19D41006D9391 /* SalesTaxTests.swift */; };
 		C381361C24C19D41006D9391 /* SalesTaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381361B24C19D41006D9391 /* SalesTaxUITests.swift */; };
+		C3CDDAEE25DFD02900BA27C9 /* Tax.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CDDAED25DFD02900BA27C9 /* Tax.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C381361724C19D41006D9391 /* SalesTaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalesTaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C381361B24C19D41006D9391 /* SalesTaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesTaxUITests.swift; sourceTree = "<group>"; };
 		C381361D24C19D41006D9391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3CDDAED25DFD02900BA27C9 /* Tax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tax.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				C381360224C19D41006D9391 /* Assets.xcassets */,
 				C381360424C19D41006D9391 /* LaunchScreen.storyboard */,
 				C381360724C19D41006D9391 /* Info.plist */,
+				C3CDDAED25DFD02900BA27C9 /* Tax.swift */,
 			);
 			path = SalesTax;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C38135FE24C19D38006D9391 /* ViewController.swift in Sources */,
+				C3CDDAEE25DFD02900BA27C9 /* Tax.swift in Sources */,
 				C38135FA24C19D38006D9391 /* AppDelegate.swift in Sources */,
 				C38135FC24C19D38006D9391 /* SceneDelegate.swift in Sources */,
 			);

@@ -8,6 +8,7 @@
 
 
 import UIKit
+
 extension UIViewController {
 
 
@@ -39,8 +40,8 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     
     
 //    pickerView1
-        var countries = ["Select Country", "NL"]
-        var countries2 = ["Select Country", "NL"]
+        var countries = ["Select Country", "Netherlands"]
+        var countries2 = ["Select Country","Netherlands"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -60,40 +61,69 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
+
         var data = ""
-        
+
         if (pickerView.tag == 1){
             data = countries[row]
             self.detail.text = countries[row]
-            if (countries[row] == "NL"){
+            if (countries[row] == "Select Country"){
                 self.salesTaxTxt.text?.removeAll()
-                salesTaxTxt.insertText("0.21")}
-            
+                let imageName = "world.png"
+                let image = UIImage(named: imageName)
+                let imageView = UIImageView(image: image!)
+                imageView.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
+                self.view.addSubview(imageView)
+            }
+            if (countries[row] == "Netherlands"){
+                self.salesTaxTxt.text?.removeAll()
+                salesTaxTxt.insertText("0.21")
+                let imageName2 = "netherlands.png"
+                let image2 = UIImage(named: imageName2)
+                let imageView2 = UIImageView(image: image2!)
+                imageView2.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
+                self.view.addSubview(imageView2)
+            }
+
         } else if (pickerView.tag == 2){
             data = countries2[row]
             self.detail2.text = countries2[row]
-            if (countries2[row] == "NL"){
+            if (countries2[row] == "Select Country"){
+                self.salesTaxTxt2.text?.removeAll()}
+            if (countries2[row] == "Netherlands"){
                 self.salesTaxTxt2.text?.removeAll()
-                salesTaxTxt2.insertText("0.21")}
+                salesTaxTxt2.insertText("0.20")}
         }
         return data
         
     }
     
-    internal func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
-        if (countries2[row] == "NL"){
-            self.salesTaxTxt2.text?.removeAll()
-            salesTaxTxt2.insertText("0.21")
-        } else if (countries[row] == "NL"){
-                self.salesTaxTxt.text?.removeAll()
-                salesTaxTxt.insertText("0.21")
-        }
-        
-}
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //        // to set the label on a empty string by every load
+                    totalPriceLbl.text = ""
+                    priceTxt.text = ""
+                    totalPriceLbl2.text = ""
+                    priceTxt2.text = ""
+                    self.salesTaxTxt.text?.removeAll()
+                    self.salesTaxTxt2.text?.removeAll()
+        
+        
+                    //Imageview on Top of View
+                     let imageName = "world.png"
+                     let image = UIImage(named: imageName)
+                     let imageView = UIImageView(image: image!)
+                     imageView.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
+                     self.view.addSubview(imageView)
+                     self.view.bringSubviewToFront(imageView)
+        
+//                    let imageName2 = "world.png"
+//                    let image2 = UIImage(named: imageName2)
+//                    let imageView2 = UIImageView(image: image2!)
+//                    imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
+//                    self.view.addSubview(imageView2)
+//                    self.view.bringSubviewToFront(imageView2)
     }
     
 //
