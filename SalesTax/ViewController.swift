@@ -71,11 +71,13 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
             self.detail.text = countries[row]
             if (countries[row] == "Select Country"){
                 self.salesTaxTxt.text?.removeAll()
+                self.priceTxt.text?.removeAll()
                 salesTaxTxt.insertText("0.00")
+                priceTxt.insertText("0")
                 let imageName = "world.png"
                 let image = UIImage(named: imageName)
                 let imageView = UIImageView(image: image!)
-                imageView.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
+                imageView.frame = CGRect(x: 85, y: 80, width: 40, height: 40)
                 self.view.addSubview(imageView)
                 self.view.bringSubviewToFront(imageView)
 
@@ -86,7 +88,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
                 let imageName = "netherlands.png"
                 let image = UIImage(named: imageName)
                 let imageView = UIImageView(image: image!)
-                imageView.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
+                imageView.frame = CGRect(x: 85, y: 80, width: 40, height: 40)
                 self.view.addSubview(imageView)
                 self.view.bringSubviewToFront(imageView)
             }
@@ -96,7 +98,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
                 let imageName = "france.png"
                 let image = UIImage(named: imageName)
                 let imageView = UIImageView(image: image!)
-                imageView.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
+                imageView.frame = CGRect(x: 85, y: 80, width: 40, height: 40)
                 self.view.addSubview(imageView)
                 self.view.bringSubviewToFront(imageView)
             }
@@ -106,11 +108,13 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
             self.detail2.text = countries2[row]
             if (countries2[row] == "Select Country"){
                 self.salesTaxTxt2.text?.removeAll()
+                self.priceTxt2.text?.removeAll()
                 salesTaxTxt2.insertText("0.00")
+                priceTxt2.insertText("0")
                 let imageName2 = "world.png"
                 let image2 = UIImage(named: imageName2)
                 let imageView2 = UIImageView(image: image2!)
-                imageView2.frame = CGRect(x: 195, y: 100, width: 40, height: 40)
+                imageView2.frame = CGRect(x: 275, y: 80, width: 40, height: 40)
                 self.view.addSubview(imageView2)
                 self.view.bringSubviewToFront(imageView2)
             }
@@ -120,7 +124,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
                 let imageName2 = "netherlands.png"
                 let image2 = UIImage(named: imageName2)
                 let imageView2 = UIImageView(image: image2!)
-                imageView2.frame = CGRect(x: 195, y: 100, width: 40, height: 40)
+                imageView2.frame = CGRect(x: 275, y: 80, width: 40, height: 40)
                 self.view.addSubview(imageView2)
                 self.view.bringSubviewToFront(imageView2)
             }
@@ -130,7 +134,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
                     let imageName2 = "france.png"
                     let image2 = UIImage(named: imageName2)
                     let imageView2 = UIImageView(image: image2!)
-                    imageView2.frame = CGRect(x: 195, y: 100, width: 40, height: 40)
+                    imageView2.frame = CGRect(x: 275, y: 80, width: 40, height: 40)
                     self.view.addSubview(imageView2)
                     self.view.bringSubviewToFront(imageView2)
             }
@@ -243,22 +247,8 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         }
     }
     
-    @IBOutlet weak var Result: UILabel!{
-    didSet {
-    Result.accessibilityIdentifier = "Result"
-        }
-    }
+
     
-    @IBAction func calcResult(_ sender: Any){
-        let float = totalPriceLbl
-        let float2 = totalPriceLbl2
-        let float3 =  float2.advanced(by:float)
-    }
-    
-
-
-
-
     @IBAction func calculateTotalPrice(_ sender: Any) {
     //creating alert in case of empty values
         let alert = UIAlertController(title: "Error", message: "Please enter valid number!", preferredStyle: .alert)
@@ -266,51 +256,50 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
             print("OK is pressed")
             // after pressing OK button the totalPrice field is cleared
             self.totalPriceLbl.text?.removeAll()
+            self.totalPriceLbl2.text?.removeAll()
+
         }))
 
     //  let is an variable, we need to convert text into number with 'Double' > decimals
         let price = Double(priceTxt.text!)!
         let salesTax = Double(salesTaxTxt.text!)!
+        let price2 = Double(priceTxt2.text!)!
+        let salesTax2 = Double(salesTaxTxt2.text!)!
 
-        if (price.isLess(than: 0.00) == true || price.isEqual(to: 0) || price.isEqual(to: Double(EMPTY) )) {
+        if (price.isEqual(to: 0) && price2.isEqual(to: 0)) {
             present(alert, animated: true, completion: nil)
-        } else if (salesTax.isLess(than: 0.00) == true || salesTax.isEqual(to: 0.00)) {
+        } else if (salesTax.isEqual(to: 0.00) && salesTax2.isEqual(to: 0.00)) {
             present(alert, animated: true, completion: nil)
         }
+        
+//        if (price2.isLess(than: 0.00) == true || price2.isEqual(to: 0) || price2.isEqual(to: Double(EMPTY) )) {
+//            present(alert, animated: true, completion: nil)
+//        } else if (salesTax2.isLess(than: 0.00) == true || salesTax2.isEqual(to: 0.00)) {
+//            present(alert, animated: true, completion: nil)
+//        }
 
         let totalSalesTax = price * salesTax
         let totalPrice = price + totalSalesTax
 
         //  we're converting a number into a string > string interpolation
         totalPriceLbl.text = "€\(totalPrice)"
-    }
-
-
-    @IBAction func calculateTotalPrice2(_ sender: Any) {
-        let alert2 = UIAlertController(title: "Error", message: "Please enter valid number!", preferredStyle: .alert)
-        alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            print("OK is pressed")
-            // after pressing OK button the totalPrice field is cleared
-            self.totalPriceLbl2.text?.removeAll()
-        }))
-
-        //  let is an variable, we need to convert text into number with 'Double' > decimals
-            let price2 = Double(priceTxt2.text!)!
-            let salesTax2 = Double(salesTaxTxt2.text!)!
-
-        if (price2.isLess(than: 0.00) == true || price2.isEqual(to: 0) || price2.isEqual(to: Double(EMPTY) )) {
-            present(alert2, animated: true, completion: nil)
-        } else if (salesTax2.isLess(than: 0.00) == true || salesTax2.isEqual(to: 0.00)) {
-            present(alert2, animated: true, completion: nil)
-        }
-
-
+        
         let totalSalesTax2 = price2 * salesTax2
         let totalPrice2 = price2 + totalSalesTax2
 
         //  we're converting a number into a string > string interpolation
         totalPriceLbl2.text = "€\(totalPrice2)"
+        
+        
+        let totalDiff = totalPrice - totalPrice2
+        totalResult.text = "€\(totalDiff)"
+        
     }
+
+
+        
+    @IBOutlet weak var totalResult: UITextField!
+    
 
     override func viewDidAppear(_ animated: Bool) {
         createMessage(title: "Test", message: "Test is Starting")
@@ -343,39 +332,6 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
 //        self.present (alert, animated: true, completion: nil)
     }
 
-//// Is loaded whenever our screen is loaded everytime
-//        override func viewDidLoad() {
-//            super.viewDidLoad()
-//        // to set the label on a empty string by every load
-//            totalPriceLbl.text = ""
-//            priceTxt.text = ""
-//            salesTaxTxt.text = "0.00"
-//            totalPriceLbl2.text = ""
-//            priceTxt2.text = ""
-//            salesTaxTxt2.text = "0.00"
-//        // hide keyboard with every load
-//            self.HideKeyboard()
-//            view.backgroundColor = .lightGray
-//    //     self.okButton.addTarget(self, action: #selector(createAlert), for: .touchUpInside)
-//            //Imageview on Top of View
-////             let imageName = "world.png"
-////             let image = UIImage(named: imageName)
-////             let imageView = UIImageView(image: image!)
-////             imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
-////             self.view.addSubview(imageView)
-////             self.view.bringSubviewToFront(imageView)
-////
-////            let imageName2 = "world.png"
-////            let image2 = UIImage(named: imageName2)
-////            let imageView2 = UIImageView(image: image2!)
-////            imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
-////            self.view.addSubview(imageView2)
-////            self.view.bringSubviewToFront(imageView2)
-////            pickerView.dataSource = self
-////            pickerView.delegate = self
-//
-//        }
-//
     @IBAction func handleSelection(_ sender: UIButton) {
     }
 }
