@@ -39,10 +39,12 @@ extension UIViewController {
 class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDelegate {
     
     
-//    pickerView1
-        var countries = ["Select Country", "Netherlands"]
-        var countries2 = ["Select Country","Netherlands"]
+    var countries = ["Select Country","Netherlands","France"]
+    var countries2 = ["Select Country","Netherlands","France"]
     
+    
+//    pickerView1
+ 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -69,30 +71,70 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
             self.detail.text = countries[row]
             if (countries[row] == "Select Country"){
                 self.salesTaxTxt.text?.removeAll()
+                salesTaxTxt.insertText("0.00")
                 let imageName = "world.png"
                 let image = UIImage(named: imageName)
                 let imageView = UIImageView(image: image!)
                 imageView.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
                 self.view.addSubview(imageView)
+                self.view.bringSubviewToFront(imageView)
+
             }
             if (countries[row] == "Netherlands"){
                 self.salesTaxTxt.text?.removeAll()
                 salesTaxTxt.insertText("0.21")
-                let imageName2 = "netherlands.png"
-                let image2 = UIImage(named: imageName2)
-                let imageView2 = UIImageView(image: image2!)
-                imageView2.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
-                self.view.addSubview(imageView2)
+                let imageName = "netherlands.png"
+                let image = UIImage(named: imageName)
+                let imageView = UIImageView(image: image!)
+                imageView.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
+                self.view.addSubview(imageView)
+                self.view.bringSubviewToFront(imageView)
+            }
+            if (countries[row] == "France"){
+                self.salesTaxTxt.text?.removeAll()
+                salesTaxTxt.insertText("0.20")
+                let imageName = "france.png"
+                let image = UIImage(named: imageName)
+                let imageView = UIImageView(image: image!)
+                imageView.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
+                self.view.addSubview(imageView)
+                self.view.bringSubviewToFront(imageView)
             }
 
         } else if (pickerView.tag == 2){
             data = countries2[row]
             self.detail2.text = countries2[row]
             if (countries2[row] == "Select Country"){
-                self.salesTaxTxt2.text?.removeAll()}
+                self.salesTaxTxt2.text?.removeAll()
+                salesTaxTxt2.insertText("0.00")
+                let imageName2 = "world.png"
+                let image2 = UIImage(named: imageName2)
+                let imageView2 = UIImageView(image: image2!)
+                imageView2.frame = CGRect(x: 195, y: 100, width: 40, height: 40)
+                self.view.addSubview(imageView2)
+                self.view.bringSubviewToFront(imageView2)
+            }
             if (countries2[row] == "Netherlands"){
                 self.salesTaxTxt2.text?.removeAll()
-                salesTaxTxt2.insertText("0.20")}
+                salesTaxTxt2.insertText("0.21")
+                let imageName2 = "netherlands.png"
+                let image2 = UIImage(named: imageName2)
+                let imageView2 = UIImageView(image: image2!)
+                imageView2.frame = CGRect(x: 195, y: 100, width: 40, height: 40)
+                self.view.addSubview(imageView2)
+                self.view.bringSubviewToFront(imageView2)
+            }
+            if (countries2[row] == "France"){
+                    self.salesTaxTxt2.text?.removeAll()
+                    salesTaxTxt2.insertText("0.20")
+                    let imageName2 = "france.png"
+                    let image2 = UIImage(named: imageName2)
+                    let imageView2 = UIImageView(image: image2!)
+                    imageView2.frame = CGRect(x: 195, y: 100, width: 40, height: 40)
+                    self.view.addSubview(imageView2)
+                    self.view.bringSubviewToFront(imageView2)
+            }
+            
         }
         return data
         
@@ -108,25 +150,11 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
                     priceTxt2.text = ""
                     self.salesTaxTxt.text?.removeAll()
                     self.salesTaxTxt2.text?.removeAll()
-        
-        
-                    //Imageview on Top of View
-                     let imageName = "world.png"
-                     let image = UIImage(named: imageName)
-                     let imageView = UIImageView(image: image!)
-                     imageView.frame = CGRect(x: 15, y: 100, width: 40, height: 40)
-                     self.view.addSubview(imageView)
-                     self.view.bringSubviewToFront(imageView)
-        
-//                    let imageName2 = "world.png"
-//                    let image2 = UIImage(named: imageName2)
-//                    let imageView2 = UIImageView(image: image2!)
-//                    imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
-//                    self.view.addSubview(imageView2)
-//                    self.view.bringSubviewToFront(imageView2)
+                     self.HideKeyboard()
+                    view.backgroundColor = .lightGray
+
     }
     
-//
     
     
     @IBOutlet weak var salesTaxTxt: UITextField! {
@@ -155,156 +183,8 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         }
     
 
-    
-    
-
 
     
-//    @IBOutlet weak var pickerView: UIPickerView! {
-//    didSet {
-//        pickerView.accessibilityIdentifier = "Picker"
-//        }
-//    }
-    
-
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        if (countries2[row] == "NL"){
-//            self.salesTaxTxt2.text?.removeAll()
-//            salesTaxTxt2.insertText("0.21")
-//            detail2.text = "Netherlands"
-//
-//        } else if  (countries[row] == "NL"){
-//            self.salesTaxTxt.text?.removeAll()
-//            salesTaxTxt.insertText("0.21")
-//            detail.text = "Netherlands"
-//
-//        }
-//
-//    }
-
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        if (countries[row] == "NL"){
-//            self.salesTaxTxt.text?.removeAll()
-//            salesTaxTxt.insertText("0.21")
-//            detail.text = "Netherlands"
-//        }}
-//            //Imageview on Top of View
-////            let imageName = "netherlands.png"
-////            let image = UIImage(named: imageName)
-////            let imageView = UIImageView(image: image!)
-////            imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
-////            self.view.addSubview(imageView)
-////            self.view.bringSubviewToFront(imageView)
-//
-//        } else if (countries[row] == "FR") {
-//                self.salesTaxTxt.text?.removeAll()
-//                salesTaxTxt.insertText("0.20")
-//                detail.text = "France"
-//                //Imageview on Top of View
-////                let imageName = "france.png"
-////                let image = UIImage(named: imageName)
-////                let imageView = UIImageView(image: image!)
-////                imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
-////                self.view.addSubview(imageView)
-////                self.view.bringSubviewToFront(imageView)
-//        } else if (countries[row] == "DE") {
-//                self.salesTaxTxt.text?.removeAll()
-//                salesTaxTxt.insertText("0.25")
-//                detail.text = "Denmark"
-//                //Imageview on Top of View
-////                let imageName = "denmark.png"
-////                let image = UIImage(named: imageName)
-////                let imageView = UIImageView(image: image!)
-////                imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
-////                self.view.addSubview(imageView)
-////                self.view.bringSubviewToFront(imageView)
-//        } else {
-//                self.salesTaxTxt.text?.removeAll()
-//                salesTaxTxt.insertText("0.00")
-//                detail.text = "Select Country"
-//                //Imageview on Top of View
-////                 let imageName = "world.png"
-////                 let image = UIImage(named: imageName)
-////                 let imageView = UIImageView(image: image!)
-////                 imageView.frame = CGRect(x: 65, y: 45, width: 40, height: 40)
-////                 self.view.addSubview(imageView)
-////                 self.view.bringSubviewToFront(imageView)
-//
-//        }
-//    }
-    
-
-//    //    pickerView2
-//    @IBOutlet weak var pickerView2: UIPickerView!{
-//        didSet {
-//            pickerView2.accessibilityIdentifier = "Picker2"
-//            }
-//    }
-//    
-//    func numberOfComponents2(in pickerView2: UIPickerView) -> Int {
-//            return 1
-//        }
-//    
-//    func pickerView2(_ pickerView2: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return countries2.count
-//    }
-//    
-//    
-//    func pickerView2(_ pickerView2: UIPickerView, titleForRow row2: Int, forComponent component: Int) -> String?
-//    {
-//        return countries2 [row2]
-//    }
-//
-//    func pickerView2(_ pickerView2: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        detail2.text = countries2[row]
-//        if (countries2[row] == "NL"){
-//            self.salesTaxTxt2.text?.removeAll()
-//            salesTaxTxt2.insertText("0.21")
-//            detail2.text = "Netherlands"
-//            //Imageview on Top of View
-////            let imageName2 = "netherlands.png"
-////            let image2 = UIImage(named: imageName2)
-////            let imageView2 = UIImageView(image: image2!)
-////            imageView2.frame = CGRect(x: 95, y: 45, width: 40, height: 40)
-////            self.view.addSubview(imageView2)
-////            self.view.bringSubviewToFront(imageView2)
-//
-//        } else if (countries2[row] == "FR") {
-//                self.salesTaxTxt2.text?.removeAll()
-//                salesTaxTxt2.insertText("0.20")
-//                detail2.text = "France"
-//                //Imageview on Top of View
-////                let imageName2 = "france.png"
-////                let image2 = UIImage(named: imageName2)
-////                let imageView2 = UIImageView(image: image2!)
-////                imageView2.frame = CGRect(x: 95, y: 45, width: 40, height: 40)
-////                self.view.addSubview(imageView2)
-////                self.view.bringSubviewToFront(imageView2)
-//        } else if (countries2[row] == "DE") {
-//                self.salesTaxTxt2.text?.removeAll()
-//                salesTaxTxt2.insertText("0.25")
-//                detail2.text = "Denmark"
-//                //Imageview on Top of View
-////                let imageName2 = "denmark.png"
-////                let image2 = UIImage(named: imageName2)
-////                let imageView2 = UIImageView(image: image2!)
-////                imageView2.frame = CGRect(x: 95, y: 45, width: 40, height: 40)
-////                self.view.addSubview(imageView2)
-////                self.view.bringSubviewToFront(imageView2)
-//        } else {
-//                self.salesTaxTxt2.text?.removeAll()
-//                salesTaxTxt2.insertText("0.00")
-//                detail2.text = "Select Country"
-//                //Imageview on Top of View
-////                 let imageName2 = "world.png"
-////                 let image2 = UIImage(named: imageName2)
-////                 let imageView2 = UIImageView(image: image2!)
-////                 imageView2.frame = CGRect(x: 95, y: 45, width: 40, height: 40)
-////                 self.view.addSubview(imageView2)
-////                 self.view.bringSubviewToFront(imageView2)
-//
-//        }
-//    }
 
     
 //    Price Field
@@ -362,6 +242,19 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
             appLabel.accessibilityIdentifier = "AppLabel"
         }
     }
+    
+    @IBOutlet weak var Result: UILabel!{
+    didSet {
+    Result.accessibilityIdentifier = "Result"
+        }
+    }
+    
+    @IBAction func calcResult(_ sender: Any){
+        let float = totalPriceLbl
+        let float2 = totalPriceLbl2
+        let float3 =  float2.advanced(by:float)
+    }
+    
 
 
 
@@ -379,9 +272,9 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         let price = Double(priceTxt.text!)!
         let salesTax = Double(salesTaxTxt.text!)!
 
-        if (price.isLess(than: 0.00) == true || price.isEqual(to: 0)) {
+        if (price.isLess(than: 0.00) == true || price.isEqual(to: 0) || price.isEqual(to: Double(EMPTY) )) {
             present(alert, animated: true, completion: nil)
-        } else if (salesTax.isLess(than: 0.00) == true || salesTax.isEqual(to: 0)) {
+        } else if (salesTax.isLess(than: 0.00) == true || salesTax.isEqual(to: 0.00)) {
             present(alert, animated: true, completion: nil)
         }
 
@@ -394,8 +287,8 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
 
 
     @IBAction func calculateTotalPrice2(_ sender: Any) {
-        let alert = UIAlertController(title: "Error", message: "Please enter valid number!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+        let alert2 = UIAlertController(title: "Error", message: "Please enter valid number!", preferredStyle: .alert)
+        alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             print("OK is pressed")
             // after pressing OK button the totalPrice field is cleared
             self.totalPriceLbl2.text?.removeAll()
@@ -405,10 +298,10 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
             let price2 = Double(priceTxt2.text!)!
             let salesTax2 = Double(salesTaxTxt2.text!)!
 
-        if (price2.isLess(than: 0.00) == true || price2.isEqual(to: 0)) {
-            present(alert, animated: true, completion: nil)
-        } else if (salesTax2.isLess(than: 0.00) == true || salesTax2.isEqual(to: 0)) {
-            present(alert, animated: true, completion: nil)
+        if (price2.isLess(than: 0.00) == true || price2.isEqual(to: 0) || price2.isEqual(to: Double(EMPTY) )) {
+            present(alert2, animated: true, completion: nil)
+        } else if (salesTax2.isLess(than: 0.00) == true || salesTax2.isEqual(to: 0.00)) {
+            present(alert2, animated: true, completion: nil)
         }
 
 
@@ -485,32 +378,4 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
 //
     @IBAction func handleSelection(_ sender: UIButton) {
     }
-
-
-//
-////    @IBAction func taxNL(_ sender: Any) {
-////        salesTaxTxt.text?.removeAll()
-////        salesTaxTxt.insertText("0.21")
-////
-////    }
-////
-////    @IBOutlet weak var taxFR: UIButton!{
-////    didSet {
-////        taxFR.accessibilityIdentifier = "taxFR"
-////        }
-////
-////    }
-////
-////    @IBAction func taxFR(_ sender: Any) {
-////        salesTaxTxt.text?.removeAll()
-////        salesTaxTxt.insertText("0.20")
-////
-////    }
-//
-//
-//
 }
-//
-//
-//
-//
