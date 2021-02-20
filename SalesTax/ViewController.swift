@@ -247,8 +247,25 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         }
     }
     
-
+    @IBOutlet weak var totalResult: UITextField!
     
+
+    @IBAction func NextViewMessage(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let vc = segue.destination as! SecondViewController
+//        vc.messageSecondView = vc.textFieldSecondView.text
+       
+        if let destinationViewController = segue.destination as? SecondViewController {
+//            destinationViewController.messageSecondView = "Hi"
+            destinationViewController.textFieldSecondView.text = "Hi"
+        }
+    }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let secondVC = segue.destination as! SecondViewController
+//            secondVC.secondVCData = textField.text
+//         
+//        }
+//    
     @IBAction func calculateTotalPrice(_ sender: Any) {
     //creating alert in case of empty values
         let alert = UIAlertController(title: "Error", message: "Please enter valid number!", preferredStyle: .alert)
@@ -271,12 +288,6 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         } else if (salesTax.isEqual(to: 0.00) && salesTax2.isEqual(to: 0.00)) {
             present(alert, animated: true, completion: nil)
         }
-        
-//        if (price2.isLess(than: 0.00) == true || price2.isEqual(to: 0) || price2.isEqual(to: Double(EMPTY) )) {
-//            present(alert, animated: true, completion: nil)
-//        } else if (salesTax2.isLess(than: 0.00) == true || salesTax2.isEqual(to: 0.00)) {
-//            present(alert, animated: true, completion: nil)
-//        }
 
         let totalSalesTax = price * salesTax
         let totalPrice = price + totalSalesTax
@@ -297,9 +308,6 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     }
 
 
-        
-    @IBOutlet weak var totalResult: UITextField!
-    
 
     override func viewDidAppear(_ animated: Bool) {
         createMessage(title: "Test", message: "Test is Starting")
@@ -332,6 +340,6 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
 //        self.present (alert, animated: true, completion: nil)
     }
 
-    @IBAction func handleSelection(_ sender: UIButton) {
-    }
+//    @IBAction func handleSelection(_ sender: UIButton) {
+//    }
 }
