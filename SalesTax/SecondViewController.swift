@@ -9,12 +9,12 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-    var messageSecondView: String!
-    @IBOutlet weak var textFieldSecondView: UITextField!
+    var finalText = ""
+    @IBOutlet weak var nameLabel: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let imageName2 = "thumbsup.jpeg"
         let image2 = UIImage(named: imageName2)
         let imageView2 = UIImageView(image: image2!)
@@ -22,19 +22,8 @@ class SecondViewController: UIViewController {
         self.view.addSubview(imageView2)
         self.view.bringSubviewToFront(imageView2)
         
-
-        // Do any additional setup after loading the view.
+        
+        nameLabel.text = finalText
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

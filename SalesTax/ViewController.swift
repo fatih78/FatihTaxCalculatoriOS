@@ -219,14 +219,6 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     }
 
 
-    @IBOutlet weak var okButton: UIButton! {
-        didSet {
-            okButton.accessibilityIdentifier = "OK"
-            }
-        }
-
-
-
 
     @IBOutlet weak var totalPriceLbl: UILabel! {
         didSet {
@@ -247,25 +239,35 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         }
     }
     
-    @IBOutlet weak var totalResult: UITextField!
     
-
-    @IBAction func NextViewMessage(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let vc = segue.destination as! SecondViewController
-//        vc.messageSecondView = vc.textFieldSecondView.text
-       
-        if let destinationViewController = segue.destination as? SecondViewController {
-//            destinationViewController.messageSecondView = "Hi"
-            destinationViewController.textFieldSecondView.text = "Hi"
-        }
+    
+// A segue has a begin- & end point > ViewController >> SecondViewController
+    
+    var nameText = ""
+    
+    @IBOutlet weak var textField: UITextField!
+    
+//    Function when the button is hit
+    @IBAction func doen(_ sender: Any) {
+        self.nameText = textField.text!
+        performSegue(withIdentifier: "Text", sender: self)
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let secondVC = segue.destination as! SecondViewController
-//            secondVC.secondVCData = textField.text
-//         
-//        }
-//    
+//    to access the SecondViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SecondViewController
+//  FinalText is already set in the SecondViewController, with this we pass the text to the SecondViewController
+        vc.finalText = self.nameText
+    }
+    
+    
+//
+    
+    @IBOutlet weak var totalResult: UITextField!
+
+    
+
+    
     @IBAction func calculateTotalPrice(_ sender: Any) {
     //creating alert in case of empty values
         let alert = UIAlertController(title: "Error", message: "Please enter valid number!", preferredStyle: .alert)
