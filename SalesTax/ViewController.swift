@@ -211,25 +211,6 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         }
     }
 
-//    @IBOutlet weak var calcButton2: UIButton!{
-//        didSet {
-//            calcButton2.accessibilityIdentifier = "Calculator"
-//        }
-//    }
-//
-//
-//
-//    @IBOutlet weak var totalPriceLbl: UILabel! {
-//        didSet {
-//            totalPriceLbl.accessibilityIdentifier = "TotalPrice"
-//        }
-//    }
-//
-//    @IBOutlet weak var totalPriceLbl2: UILabel!{
-//        didSet {
-//            totalPriceLbl2.accessibilityIdentifier = "TotalPrice2"
-//        }
-//    }
 
 
     @IBOutlet weak var appLabel: UITextField! {
@@ -253,9 +234,9 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
 //    Function when the button is hit
     @IBAction func doen(_ sender: Any) {
         calculate()
-        self.priceOne = "€\(totalPrice)"
-        self.priceTwo = "€\(totalPriceTwo)"
-        self.difference = "€\(totalDifference)"
+        self.priceOne = "Price1: €\(totalPrice)"
+        self.priceTwo = "Price2: €\(totalPriceTwo)"
+        self.difference = "Difference: €\(totalDifference)"
         
         performSegue(withIdentifier: "Text", sender: self)
     }
@@ -282,9 +263,6 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         let alert = UIAlertController(title: "Error", message: "Please enter valid number!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             print("OK is pressed")
-            // after pressing OK button the totalPrice field is cleared
-//            self.totalPriceLbl.text?.removeAll()
-//            self.totalPriceLbl2.text?.removeAll()
 
         }))
 
@@ -303,18 +281,12 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         let totalSalesTax = price * salesTax
         totalPrice = String(price + totalSalesTax)
 
-        //  we're converting a number into a string > string interpolation
-//        totalPriceLbl.text = "€\(totalPrice)"
         
         let totalSalesTax2 = price2 * salesTax2
         totalPriceTwo = String(price2 + totalSalesTax2)
 
-        //  we're converting a number into a string > string interpolation
-//        totalPriceLbl2.text = "€\(totalPrice2)"
-        
         
         totalDifference = String((price + totalSalesTax)-(price2 + totalSalesTax2))
-//        totalResult.text = "€\(totalDiff)"
         
     }
 
@@ -348,9 +320,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
             print("OK")
         }))
 
-//        self.present (alert, animated: true, completion: nil)
+
     }
 
-//    @IBAction func handleSelection(_ sender: UIButton) {
-//    }
 }

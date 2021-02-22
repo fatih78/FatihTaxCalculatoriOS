@@ -24,12 +24,12 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageName2 = "thumbsup.jpeg"
-        let image2 = UIImage(named: imageName2)
-        let imageView2 = UIImageView(image: image2!)
-        imageView2.frame = CGRect(x: 180, y: 350, width: 75, height: 75)
-        self.view.addSubview(imageView2)
-        self.view.bringSubviewToFront(imageView2)
+//        let imageName2 = "thumbsup.jpeg"
+//        let image2 = UIImage(named: imageName2)
+//        let imageView2 = UIImageView(image: image2!)
+//        imageView2.frame = CGRect(x: 180, y: 350, width: 75, height: 75)
+//        self.view.addSubview(imageView2)
+//        self.view.bringSubviewToFront(imageView2)
         
         
         priceOne.text = finalPriceOne
