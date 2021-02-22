@@ -147,9 +147,9 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         //        // to set the label on a empty string by every load
-                    totalPriceLbl.text = ""
+//                    totalPriceLbl.text = ""
                     priceTxt.text = ""
-                    totalPriceLbl2.text = ""
+//                    totalPriceLbl2.text = ""
                     priceTxt2.text = ""
                     self.salesTaxTxt.text?.removeAll()
                     self.salesTaxTxt2.text?.removeAll()
@@ -211,25 +211,25 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         }
     }
 
-    @IBOutlet weak var calcButton2: UIButton!{
-        didSet {
-            calcButton2.accessibilityIdentifier = "Calculator"
-        }
-    }
-
-
-
-    @IBOutlet weak var totalPriceLbl: UILabel! {
-        didSet {
-            totalPriceLbl.accessibilityIdentifier = "TotalPrice"
-        }
-    }
-
-    @IBOutlet weak var totalPriceLbl2: UILabel!{
-        didSet {
-            totalPriceLbl2.accessibilityIdentifier = "TotalPrice2"
-        }
-    }
+//    @IBOutlet weak var calcButton2: UIButton!{
+//        didSet {
+//            calcButton2.accessibilityIdentifier = "Calculator"
+//        }
+//    }
+//
+//
+//
+//    @IBOutlet weak var totalPriceLbl: UILabel! {
+//        didSet {
+//            totalPriceLbl.accessibilityIdentifier = "TotalPrice"
+//        }
+//    }
+//
+//    @IBOutlet weak var totalPriceLbl2: UILabel!{
+//        didSet {
+//            totalPriceLbl2.accessibilityIdentifier = "TotalPrice2"
+//        }
+//    }
 
 
     @IBOutlet weak var appLabel: UITextField! {
@@ -283,8 +283,8 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             print("OK is pressed")
             // after pressing OK button the totalPrice field is cleared
-            self.totalPriceLbl.text?.removeAll()
-            self.totalPriceLbl2.text?.removeAll()
+//            self.totalPriceLbl.text?.removeAll()
+//            self.totalPriceLbl2.text?.removeAll()
 
         }))
 
@@ -304,7 +304,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         totalPrice = String(price + totalSalesTax)
 
         //  we're converting a number into a string > string interpolation
-        totalPriceLbl.text = "€\(totalPrice)"
+//        totalPriceLbl.text = "€\(totalPrice)"
         
         let totalSalesTax2 = price2 * salesTax2
         totalPriceTwo = String(price2 + totalSalesTax2)
