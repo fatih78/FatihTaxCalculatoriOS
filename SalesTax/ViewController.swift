@@ -10,7 +10,7 @@
 import UIKit
 
 extension UIViewController {
-
+    
 
     @IBAction func start (_ sender:AnyObject ){
         let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
@@ -37,7 +37,6 @@ extension UIViewController {
 
 
 class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDelegate {
-    
     
     var countries = ["Select Country","Netherlands","France"]
     var countries2 = ["Select Country","Netherlands","France"]
@@ -243,13 +242,20 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     
 // A segue has a begin- & end point > ViewController >> SecondViewController
     
-    var nameText = ""
+    var priceOne = ""
+    var priceTwo = ""
+    var difference = ""
     
-    @IBOutlet weak var textField: UITextField!
+//    var totalPrice = ""
+//    var finalPrice2 = ""
     
 //    Function when the button is hit
     @IBAction func doen(_ sender: Any) {
-        self.nameText = textField.text!
+        calculate()
+        self.priceOne = totalPriceLbl.text!
+        self.priceTwo = totalPriceLbl2.text!
+        self.difference = totalResult.text!
+        
         performSegue(withIdentifier: "Text", sender: self)
     }
     
@@ -257,7 +263,9 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SecondViewController
 //  FinalText is already set in the SecondViewController, with this we pass the text to the SecondViewController
-        vc.finalText = self.nameText
+        vc.finalPriceOne = self.priceOne
+        vc.finalPriceTwo = self.priceTwo
+        vc.finalDifference = self.difference
     }
     
     
@@ -267,8 +275,8 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
 
     
 
-    
-    @IBAction func calculateTotalPrice(_ sender: Any) {
+    func calculate(){
+//    @IBAction func calculateTotalPrice(_ sender: Any) {
     //creating alert in case of empty values
         let alert = UIAlertController(title: "Error", message: "Please enter valid number!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in

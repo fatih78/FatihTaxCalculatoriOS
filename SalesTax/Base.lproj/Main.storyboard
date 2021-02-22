@@ -114,36 +114,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-YO-yV2">
-                                <rect key="frame" x="157" y="298" width="78" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="CALCULATE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="calculateTotalPrice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gvs-5Z-czD"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuf-gO-WiL">
-                                <rect key="frame" x="154" y="600" width="84" height="34"/>
+                                <rect key="frame" x="154" y="291" width="84" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Done">
+                                <state key="normal" title="Calculate">
                                     <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="doen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pH8-sN-S1b"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your text here!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GPv-rf-lUS">
-                                <rect key="frame" x="86" y="558" width="221" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
@@ -152,14 +134,12 @@
                     <navigationItem key="navigationItem" id="lqh-rc-j2H"/>
                     <connections>
                         <outlet property="appLabel" destination="Vl5-Vu-noI" id="NsU-fh-mGs"/>
-                        <outlet property="calcButton" destination="hYe-YO-yV2" id="phu-Vc-hG8"/>
                         <outlet property="detail" destination="hB6-mx-nth" id="sCO-ru-flG"/>
                         <outlet property="detail2" destination="7pV-32-Hdf" id="Fj0-ed-WrP"/>
                         <outlet property="priceTxt" destination="B6w-v8-oQA" id="AQd-Qr-bTb"/>
                         <outlet property="priceTxt2" destination="rRK-DI-HOY" id="GZb-8T-Cfk"/>
                         <outlet property="salesTaxTxt" destination="Icm-Of-osp" id="HRR-GR-mRR"/>
                         <outlet property="salesTaxTxt2" destination="xPS-pH-B0N" id="OcG-DV-dbc"/>
-                        <outlet property="textField" destination="GPv-rf-lUS" id="0Zn-tK-gi0"/>
                         <outlet property="totalPriceLbl" destination="QN1-bq-I6o" id="FaW-sz-i6o"/>
                         <outlet property="totalPriceLbl2" destination="7dm-8d-cq7" id="Y15-ls-WWO"/>
                         <outlet property="totalResult" destination="zw6-ba-pyC" id="TiR-2a-ZbL"/>
@@ -181,7 +161,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcq-54-YCB">
                                 <rect key="frame" x="65" y="405" width="284" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
                                 <color key="tintColor" systemColor="systemGray5Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
@@ -199,13 +178,40 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="FirstView" id="y3P-Ty-Ipj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bex-6i-Q6c">
+                                <rect key="frame" x="220" y="233" width="86" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c9-3b-UKy">
+                                <rect key="frame" x="116" y="164" width="190" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZO-LZ-PFh">
+                                <rect key="frame" x="116" y="233" width="86" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qwk-QM-T4O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="IcT-w7-8XY"/>
                     <connections>
+                        <outlet property="differencePrices" destination="3c9-3b-UKy" id="hLd-Ni-K4p"/>
                         <outlet property="nameLabel" destination="jcq-54-YCB" id="0l5-p4-ose"/>
+                        <outlet property="priceOne" destination="3ZO-LZ-PFh" id="AiH-Lw-Q0t"/>
+                        <outlet property="priceTwo" destination="Bex-6i-Q6c" id="ek6-GY-Oeq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9VH-Ar-TnK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -215,6 +221,9 @@
     </scenes>
     <resources>
         <image name="eurosign.square" catalog="system" width="128" height="114"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

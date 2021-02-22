@@ -9,8 +9,17 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-    var finalText = ""
+    var finalPriceOne = ""
+    var finalPriceTwo = ""
+    var finalDifference = ""
+    
     @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var priceOne: UILabel!
+    
+    @IBOutlet weak var priceTwo: UILabel!
+    
+    @IBOutlet weak var differencePrices: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,12 +27,14 @@ class SecondViewController: UIViewController {
         let imageName2 = "thumbsup.jpeg"
         let image2 = UIImage(named: imageName2)
         let imageView2 = UIImageView(image: image2!)
-        imageView2.frame = CGRect(x: 110, y: 120, width: 150, height: 150)
+        imageView2.frame = CGRect(x: 180, y: 350, width: 75, height: 75)
         self.view.addSubview(imageView2)
         self.view.bringSubviewToFront(imageView2)
         
         
-        nameLabel.text = finalText
+        priceOne.text = finalPriceOne
+        priceTwo.text = finalPriceTwo
+        differencePrices.text = finalDifference
     }
     
 }
