@@ -246,15 +246,16 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     var priceTwo = ""
     var difference = ""
     
-//    var totalPrice = ""
-//    var finalPrice2 = ""
+    var totalPrice = ""
+    var totalPriceTwo = ""
+    var totalDifference = ""
     
 //    Function when the button is hit
     @IBAction func doen(_ sender: Any) {
         calculate()
-        self.priceOne = totalPriceLbl.text!
-        self.priceTwo = totalPriceLbl2.text!
-        self.difference = totalResult.text!
+        self.priceOne = "€\(totalPrice)"
+        self.priceTwo = "€\(totalPriceTwo)"
+        self.difference = "€\(totalDifference)"
         
         performSegue(withIdentifier: "Text", sender: self)
     }
@@ -265,7 +266,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
 //  FinalText is already set in the SecondViewController, with this we pass the text to the SecondViewController
         vc.finalPriceOne = self.priceOne
         vc.finalPriceTwo = self.priceTwo
-        vc.finalDifference = self.difference
+        vc.finalDifference = self.totalDifference
     }
     
     
@@ -300,20 +301,20 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         }
 
         let totalSalesTax = price * salesTax
-        let totalPrice = price + totalSalesTax
+        totalPrice = String(price + totalSalesTax)
 
         //  we're converting a number into a string > string interpolation
         totalPriceLbl.text = "€\(totalPrice)"
         
         let totalSalesTax2 = price2 * salesTax2
-        let totalPrice2 = price2 + totalSalesTax2
+        totalPriceTwo = String(price2 + totalSalesTax2)
 
         //  we're converting a number into a string > string interpolation
-        totalPriceLbl2.text = "€\(totalPrice2)"
+//        totalPriceLbl2.text = "€\(totalPrice2)"
         
         
-        let totalDiff = totalPrice - totalPrice2
-        totalResult.text = "€\(totalDiff)"
+        totalDifference = String((price + totalSalesTax)-(price2 + totalSalesTax2))
+//        totalResult.text = "€\(totalDiff)"
         
     }
 
