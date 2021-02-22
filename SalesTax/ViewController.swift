@@ -247,7 +247,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
 //  FinalText is already set in the SecondViewController, with this we pass the text to the SecondViewController
         vc.finalPriceOne = self.priceOne
         vc.finalPriceTwo = self.priceTwo
-        vc.finalDifference = self.totalDifference
+        vc.finalDifference = self.difference
     }
     
     
@@ -286,7 +286,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         totalPriceTwo = String(price2 + totalSalesTax2)
 
         
-        totalDifference = String((price + totalSalesTax)-(price2 + totalSalesTax2))
+        totalDifference = String(format: "%.2f",((price + totalSalesTax))-(price2 + totalSalesTax2))
         
     }
 
