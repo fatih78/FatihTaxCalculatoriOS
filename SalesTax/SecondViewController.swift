@@ -21,6 +21,12 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var differencePrices: UILabel!
     
+   
+    @IBAction func previousScreen(_ sender: Any) {
+        performSegue(withIdentifier: "Previous", sender: self)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

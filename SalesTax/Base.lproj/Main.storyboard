@@ -148,7 +148,7 @@
                                     <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="FirstView" id="y3P-Ty-Ipj"/>
+                                    <action selector="previousScreen:" destination="pWa-th-l8Q" eventType="touchUpInside" id="Vr0-ku-jTW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c9-3b-UKy">
@@ -201,6 +201,7 @@
                         <outlet property="differencePrices" destination="3c9-3b-UKy" id="hLd-Ni-K4p"/>
                         <outlet property="priceOne" destination="3ZO-LZ-PFh" id="AiH-Lw-Q0t"/>
                         <outlet property="priceTwo" destination="Bex-6i-Q6c" id="ek6-GY-Oeq"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="Previous" id="dX4-lZ-zR8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9VH-Ar-TnK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
