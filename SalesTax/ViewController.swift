@@ -146,11 +146,6 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        // to set the label on a empty string by every load
-//                    totalPriceLbl.text = ""
-                    priceTxt.text = ""
-//                    totalPriceLbl2.text = ""
-                    priceTxt2.text = ""
                     self.salesTaxTxt.text?.removeAll()
                     self.salesTaxTxt2.text?.removeAll()
                      self.HideKeyboard()
@@ -272,9 +267,12 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         let price2 = Double(priceTxt2.text!)!
         let salesTax2 = Double(salesTaxTxt2.text!)!
 
-        if (price.isEqual(to: 0) && price2.isEqual(to: 0)) {
+        if (price2.isEqual(to: 0)) {
             present(alert, animated: true, completion: nil)
-        } else if (salesTax.isEqual(to: 0.00) && salesTax2.isEqual(to: 0.00)) {
+        } else if  (price.isEqual(to: 0)) {
+            present(alert, animated: true, completion: nil)
+        }
+        else if (salesTax.isEqual(to: 0.00) && salesTax2.isEqual(to: 0.00)) {
             present(alert, animated: true, completion: nil)
         }
 
@@ -314,7 +312,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     {
         // Create Alert
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        //        // Creating on button
+        // Creating on button
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
             print("OK")
