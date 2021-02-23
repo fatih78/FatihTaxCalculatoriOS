@@ -9,6 +9,7 @@
 
 import UIKit
 
+
 extension UIViewController {
     
 
@@ -36,8 +37,8 @@ extension UIViewController {
 }
 
 
-class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDelegate {
-    
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+        
     var countries = ["Select Country","Netherlands","France"]
     var countries2 = ["Select Country","Netherlands","France"]
     var data = ""
@@ -209,7 +210,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         super.viewDidLoad()
                     self.salesTaxTxt.text?.removeAll()
                     self.salesTaxTxt2.text?.removeAll()
-                     self.HideKeyboard()
+                    self.HideKeyboard()
                     view.backgroundColor = .lightGray
 
     }
