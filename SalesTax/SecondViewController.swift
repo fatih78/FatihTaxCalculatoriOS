@@ -53,20 +53,46 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let imageName2 = "thumbsup.jpeg"
-//        let image2 = UIImage(named: imageName2)
-//        let imageView2 = UIImageView(image: image2!)
-//        imageView2.frame = CGRect(x: 180, y: 350, width: 75, height: 75)
-//        self.view.addSubview(imageView2)
-//        self.view.bringSubviewToFront(imageView2)
-        
-        
+
+                
         priceOne.text = finalPriceOne
         priceTwo.text = finalPriceTwo
         differencePrices.text = finalDifference
         country1.text = finalCountry1
         country2.text = finalCountry2
-    }
+        
+        if (finalCountry2 == "France") {
+            let imageName2 = "france.png"
+            let image2 = UIImage(named: imageName2)
+            let imageView2 = UIImageView(image: image2!)
+            imageView2.frame = CGRect(x: 275, y: 45, width: 40, height: 40)
+            self.view.addSubview(imageView2)
+            self.view.bringSubviewToFront(imageView2)
+        } else if (finalCountry2 == "Netherlands") {
+            let imageName2 = "netherlands.png"
+            let image2 = UIImage(named: imageName2)
+            let imageView2 = UIImageView(image: image2!)
+            imageView2.frame = CGRect(x: 275, y: 45, width: 40, height: 40)
+            self.view.addSubview(imageView2)
+            self.view.bringSubviewToFront(imageView2)
+        
+        }
+        if (finalCountry1 == "France"){
+            let imageName = "france.png"
+            let image = UIImage(named: imageName)
+            let imageView = UIImageView(image: image!)
+            imageView.frame = CGRect(x: 85, y: 45, width: 40, height: 40)
+            self.view.addSubview(imageView)
+            self.view.bringSubviewToFront(imageView)
+            
+        } else if (finalCountry1 == "Netherlands"){
+            let imageName = "netherlands.png"
+            let image = UIImage(named: imageName)
+            let imageView = UIImageView(image: image!)
+            imageView.frame = CGRect(x: 85, y: 45, width: 40, height: 40)
+            self.view.addSubview(imageView)
+            self.view.bringSubviewToFront(imageView)
+        }
     
+}
 }
