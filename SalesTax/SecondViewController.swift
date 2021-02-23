@@ -12,16 +12,40 @@ class SecondViewController: UIViewController {
     var finalPriceOne = ""
     var finalPriceTwo = ""
     var finalDifference = ""
+    var finalCountry1 = ""
+    var finalCountry2 = ""
     
-    @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var priceOne: UILabel!
+    @IBOutlet weak var priceOne: UILabel!{
+        didSet {
+            priceOne.accessibilityIdentifier = "priceOne"
+        }
+    }
     
-    @IBOutlet weak var priceTwo: UILabel!
+    @IBOutlet weak var priceTwo: UILabel!{
+        didSet {
+            priceTwo.accessibilityIdentifier = "priceTwo"
+        }
+    }
     
-    @IBOutlet weak var differencePrices: UILabel!
+    @IBOutlet weak var differencePrices: UILabel!{
+        didSet {
+            differencePrices.accessibilityIdentifier = "differencePrices"
+        }
+    }
     
-   
+    @IBOutlet weak var country1: UITextField!{
+        didSet {
+            country1.accessibilityIdentifier = "country1"
+        }
+    }
+    
+    @IBOutlet weak var country2: UITextField!{
+        didSet {
+            country2.accessibilityIdentifier = "country2"
+        }
+    }
+    
     @IBAction func previousScreen(_ sender: Any) {
         performSegue(withIdentifier: "Previous", sender: self)
     }
@@ -41,6 +65,8 @@ class SecondViewController: UIViewController {
         priceOne.text = finalPriceOne
         priceTwo.text = finalPriceTwo
         differencePrices.text = finalDifference
+        country1.text = finalCountry1
+        country2.text = finalCountry2
     }
     
 }

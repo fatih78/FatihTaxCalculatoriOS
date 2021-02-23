@@ -40,6 +40,67 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     
     var countries = ["Select Country","Netherlands","France"]
     var countries2 = ["Select Country","Netherlands","France"]
+    var data = ""
+    var data2 = ""
+
+    
+    
+    //   Buttons/Labels/Fields
+    
+    @IBOutlet weak var salesTaxTxt: UITextField! {
+        didSet {
+            salesTaxTxt.accessibilityIdentifier = "SalesTax"
+        }
+    }
+
+    @IBOutlet weak var salesTaxTxt2: UITextField!{
+        didSet {
+            salesTaxTxt2.accessibilityIdentifier = "SalesTax2"
+        }
+    }
+
+    //  Detail
+        @IBOutlet weak var detail: UILabel! {
+            didSet {
+                detail.accessibilityIdentifier = "CountryLabel"
+            }
+        }
+
+        @IBOutlet weak var detail2: UILabel!{
+            didSet {
+                detail2.accessibilityIdentifier = "CountryLabel2"
+            }
+        }
+    
+
+
+    @IBOutlet weak var priceTxt: UITextField! {
+        didSet {
+            priceTxt.accessibilityIdentifier = "Price"
+        }
+    }
+
+    @IBOutlet weak var priceTxt2: UITextField! {
+        didSet {
+            priceTxt2.accessibilityIdentifier = "Price2"
+        }
+    }
+//
+
+//  Calc Button
+    @IBOutlet weak var calcButton: UIButton! {
+        didSet {
+            calcButton.accessibilityIdentifier = "Calculator"
+        }
+    }
+
+
+
+    @IBOutlet weak var appLabel: UITextField! {
+        didSet {
+            appLabel.accessibilityIdentifier = "AppLabel"
+        }
+    }
     
     
 //    pickerView1
@@ -63,7 +124,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
 
-        var data = ""
+//        var data = ""
 
         if (pickerView.tag == 1){
             data = countries[row]
@@ -103,7 +164,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
             }
 
         } else if (pickerView.tag == 2){
-            data = countries2[row]
+            data2 = countries2[row]
             self.detail2.text = countries2[row]
             if (countries2[row] == "Select Country"){
                 self.salesTaxTxt2.text?.removeAll()
@@ -137,7 +198,7 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
                     self.view.addSubview(imageView2)
                     self.view.bringSubviewToFront(imageView2)
             }
-            
+            return data2
         }
         return data
         
@@ -155,72 +216,14 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
     
     
     
-    @IBOutlet weak var salesTaxTxt: UITextField! {
-        didSet {
-            salesTaxTxt.accessibilityIdentifier = "SalesTax"
-        }
-    }
-
-    @IBOutlet weak var salesTaxTxt2: UITextField!{
-        didSet {
-            salesTaxTxt2.accessibilityIdentifier = "SalesTax2"
-        }
-    }
-
-    //  Detail
-        @IBOutlet weak var detail: UILabel! {
-            didSet {
-                detail.accessibilityIdentifier = "CountryLabel"
-            }
-        }
-
-        @IBOutlet weak var detail2: UILabel!{
-            didSet {
-                detail2.accessibilityIdentifier = "CountryLabel2"
-            }
-        }
-    
-
-
-    
-
-    
-//    Price Field
-    @IBOutlet weak var priceTxt: UITextField! {
-        didSet {
-            priceTxt.accessibilityIdentifier = "Price"
-        }
-    }
-
-    @IBOutlet weak var priceTxt2: UITextField! {
-        didSet {
-            priceTxt2.accessibilityIdentifier = "Price2"
-        }
-    }
-//
-
-//  Calc Button
-    @IBOutlet weak var calcButton: UIButton! {
-        didSet {
-            calcButton.accessibilityIdentifier = "Calculator"
-        }
-    }
-
-
-
-    @IBOutlet weak var appLabel: UITextField! {
-        didSet {
-            appLabel.accessibilityIdentifier = "AppLabel"
-        }
-    }
-    
-    
     
 // A segue has a begin- & end point > ViewController >> SecondViewController
     
     var priceOne = ""
     var priceTwo = ""
     var difference = ""
+    var country1 = ""
+    var country2 = ""
     
     var totalPrice = ""
     var totalPriceTwo = ""
@@ -232,6 +235,9 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         self.priceOne = "Price1: €\(totalPrice)"
         self.priceTwo = "Price2: €\(totalPriceTwo)"
         self.difference = "Difference: €\(totalDifference)"
+        self.country1 = data
+        self.country2 = data2
+
         
         performSegue(withIdentifier: "Text", sender: self)
     }
@@ -243,6 +249,8 @@ class ViewController: UIViewController, UIPickerViewDataSource ,UIPickerViewDele
         vc.finalPriceOne = self.priceOne
         vc.finalPriceTwo = self.priceTwo
         vc.finalDifference = self.difference
+        vc.finalCountry1 = self.country1
+        vc.finalCountry2 = self.country2
     }
     
     
