@@ -54,7 +54,6 @@ class SecondViewController: UIViewController {
     }
     
     func flag2(){
-        imageName2 = "france.png"
         let image2 = UIImage(named: imageName2)
         let imageView2 = UIImageView(image: image2!)
         imageView2.frame = CGRect(x: 275, y: 45, width: 40, height: 40)
