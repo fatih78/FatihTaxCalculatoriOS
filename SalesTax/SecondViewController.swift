@@ -64,10 +64,8 @@ class SecondViewController: UIViewController {
         country1.text = finalCountry1
         country2.text = finalCountry2
         
-        flag1(finalCountry1: "France")
-        flag1(finalCountry1: "Netherlands")
-        flag2(finalCountry2: "France")
-        flag2(finalCountry2: "Netherlands")
+        flag1()
+        flag2()
         
     }
 }

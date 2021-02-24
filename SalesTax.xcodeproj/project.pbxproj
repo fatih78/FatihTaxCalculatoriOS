@@ -17,7 +17,6 @@
 		C381361124C19D41006D9391 /* SalesTaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381361024C19D41006D9391 /* SalesTaxTests.swift */; };
 		C381361C24C19D41006D9391 /* SalesTaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381361B24C19D41006D9391 /* SalesTaxUITests.swift */; };
 		C3F2564025E5C54900C8C879 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2563F25E5C54900C8C879 /* Flags.swift */; };
-		C3F2564E25E5C78A00C8C879 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2564D25E5C78A00C8C879 /* PickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +53,6 @@
 		C381361B24C19D41006D9391 /* SalesTaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesTaxUITests.swift; sourceTree = "<group>"; };
 		C381361D24C19D41006D9391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3F2563F25E5C54900C8C879 /* Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
-		C3F2564D25E5C78A00C8C879 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +112,6 @@
 				C381360424C19D41006D9391 /* LaunchScreen.storyboard */,
 				C381360724C19D41006D9391 /* Info.plist */,
 				C3F2563F25E5C54900C8C879 /* Flags.swift */,
-				C3F2564D25E5C78A00C8C879 /* PickerView.swift */,
 			);
 			path = SalesTax;
 			sourceTree = "<group>";
@@ -270,7 +267,6 @@
 			files = (
 				C38135FE24C19D38006D9391 /* ViewController.swift in Sources */,
 				C38135FA24C19D38006D9391 /* AppDelegate.swift in Sources */,
-				C3F2564E25E5C78A00C8C879 /* PickerView.swift in Sources */,
 				C3F2564025E5C54900C8C879 /* Flags.swift in Sources */,
 				C34936C025E0813000125F45 /* SecondViewController.swift in Sources */,
 				C38135FC24C19D38006D9391 /* SceneDelegate.swift in Sources */,
