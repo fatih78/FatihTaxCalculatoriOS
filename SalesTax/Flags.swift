@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+var pos1 = CGRect(x: 110, y: 75, width: 40, height: 40)
+var pos2 = CGRect(x: 260, y: 75, width: 40, height: 40)
+
 extension SecondViewController {
     
     
@@ -17,7 +20,7 @@ extension SecondViewController {
             imageName2 = "france.png"
             let image2 = UIImage(named: imageName2)
             let imageView2 = UIImageView(image: image2!)
-            imageView2.frame = CGRect(x: 275, y: 45, width: 40, height: 40)
+            imageView2.frame = pos2
             self.view.addSubview(imageView2)
             self.view.bringSubviewToFront(imageView2)
             
@@ -26,7 +29,7 @@ extension SecondViewController {
             imageName2 = "netherlands.png"
             let image2 = UIImage(named: imageName2)
             let imageView2 = UIImageView(image: image2!)
-            imageView2.frame = CGRect(x: 275, y: 45, width: 40, height: 40)
+            imageView2.frame = pos2
             self.view.addSubview(imageView2)
             self.view.bringSubviewToFront(imageView2)
         }}
@@ -38,7 +41,7 @@ extension SecondViewController {
             imageName = "france.png"
             let image = UIImage(named: imageName)
             let imageView = UIImageView(image: image!)
-            imageView.frame = CGRect(x: 85, y: 45, width: 40, height: 40)
+            imageView.frame = pos1
             self.view.addSubview(imageView)
             self.view.bringSubviewToFront(imageView)
             
@@ -47,7 +50,7 @@ extension SecondViewController {
             imageName = "netherlands.png"
             let image = UIImage(named: imageName)
             let imageView = UIImageView(image: image!)
-            imageView.frame = CGRect(x: 85, y: 45, width: 40, height: 40)
+            imageView.frame = pos1
             self.view.addSubview(imageView)
             self.view.bringSubviewToFront(imageView)
         }}
