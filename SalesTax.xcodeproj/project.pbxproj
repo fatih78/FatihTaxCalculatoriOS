@@ -105,6 +105,8 @@
 		C38135F824C19D38006D9391 /* SalesTax */ = {
 			isa = PBXGroup;
 			children = (
+				C3F2563F25E5C54900C8C879 /* Flags.swift */,
+				C3F2568825E5DB0300C8C879 /* PickerView.swift */,
 				C38135F924C19D38006D9391 /* AppDelegate.swift */,
 				C38135FB24C19D38006D9391 /* SceneDelegate.swift */,
 				C38135FD24C19D38006D9391 /* ViewController.swift */,
@@ -113,8 +115,6 @@
 				C381360224C19D41006D9391 /* Assets.xcassets */,
 				C381360424C19D41006D9391 /* LaunchScreen.storyboard */,
 				C381360724C19D41006D9391 /* Info.plist */,
-				C3F2563F25E5C54900C8C879 /* Flags.swift */,
-				C3F2568825E5DB0300C8C879 /* PickerView.swift */,
 			);
 			path = SalesTax;
 			sourceTree = "<group>";
