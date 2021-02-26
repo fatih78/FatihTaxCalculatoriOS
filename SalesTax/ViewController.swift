@@ -214,17 +214,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let salesTax = Double(salesTaxTxt.text!)!
         let price2 = Double(priceTxt2.text!)!
         let salesTax2 = Double(salesTaxTxt2.text!)!
+     
         
-        
-        if (price.isEqual(to: 0) || price.isLess(than: 0)) {
+        if (price.isZero || price2.isZero || price.isLess(than: 0.00) || price2.isLess(than: 0.00)) {
             present(alert, animated: true, completion: nil)
-        } else if  (price2.isEqual(to: 0) || price2.isLess(than: 0)) {
-            present(alert, animated: true, completion: nil)
-        }
-        else if (salesTax.isEqual(to: 0.00) && salesTax2.isEqual(to: 0.00)) {
+        } else if (salesTax.isEqual(to: 0.00) || salesTax2.isEqual(to: 0.00)) {
             present(alert, animated: true, completion: nil)
         }
-        
+//
         let totalSalesTax = price * salesTax
         totalPrice = String(price + totalSalesTax)
         
