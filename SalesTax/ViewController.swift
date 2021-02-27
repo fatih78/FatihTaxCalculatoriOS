@@ -166,6 +166,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var totalPriceTwo = ""
     var totalDifference = ""
     
+
+
+    
     //    Function when the button is hit
     @IBAction func doen(_ sender: Any) {
         calculate()
@@ -177,7 +180,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         
         performSegue(withIdentifier: "Text", sender: self)
-    }
+        }
     
     //    to access the SecondViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -205,7 +208,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let salesTax2 = Double(salesTaxTxt2.text!)!
         
         if (price.isZero || price2.isZero || price.isLess(than: 0.00) || price2.isLess(than: 0.00) || priceTxt.isEqual(EMPTY) || priceTxt2.isEqual(EMPTY) || priceTxt.isEqual(UTF16.self) || priceTxt2.isEqual(UTF16.self)) {
-            createAlert(title: "Invalid Price Value", message: "Please enter valid value")
+            createAlert(title: "Enter Price", message: "Field can't be empty")
         } else if (salesTax.isEqual(to: 0.00) || salesTax2.isEqual(to: 0.00)) {
             createAlert(title: "Invalid Tax Value", message: "Please enter valid value")
         }
