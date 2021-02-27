@@ -147,11 +147,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.salesTaxTxt.text?.removeAll()
-        self.salesTaxTxt2.text?.removeAll()
         self.HideKeyboard()
         view.backgroundColor = .lightGray
-        
     }
     
     
@@ -199,72 +196,44 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var totalResult: UITextField!
     
     
-    
     func calculate(){
-        //    @IBAction func calculateTotalPrice(_ sender: Any) {
-        //creating alert in case of empty values
-        let alert = UIAlertController(title: "Error", message: "Please enter valid number!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            print("OK is pressed")
-            
-        }))
         
         //  let is an variable, we need to convert text into number with 'Double' > decimals
         let price = Double(priceTxt.text!)!
         let salesTax = Double(salesTaxTxt.text!)!
         let price2 = Double(priceTxt2.text!)!
         let salesTax2 = Double(salesTaxTxt2.text!)!
-     
         
-        if (price.isZero || price2.isZero || price.isLess(than: 0.00) || price2.isLess(than: 0.00)) {
-            present(alert, animated: true, completion: nil)
+        if (price.isZero || price2.isZero || price.isLess(than: 0.00) || price2.isLess(than: 0.00) || priceTxt.isEqual(EMPTY) || priceTxt2.isEqual(EMPTY) || priceTxt.isEqual(UTF16.self) || priceTxt2.isEqual(UTF16.self)) {
+            createAlert(title: "Invalid Price Value", message: "Please enter valid value")
         } else if (salesTax.isEqual(to: 0.00) || salesTax2.isEqual(to: 0.00)) {
-            present(alert, animated: true, completion: nil)
+            createAlert(title: "Invalid Tax Value", message: "Please enter valid value")
         }
-//
-        let totalSalesTax = price * salesTax
-        totalPrice = String(price + totalSalesTax)
+
+            let totalSalesTax = price * salesTax
+            totalPrice = String(price + totalSalesTax)
+            
+            
+            let totalSalesTax2 = price2 * salesTax2
+            totalPriceTwo = String(price2 + totalSalesTax2)
+            
+            
+            totalDifference = String(format: "%.2f",((price + totalSalesTax))-(price2 + totalSalesTax2))
         
-        
-        let totalSalesTax2 = price2 * salesTax2
-        totalPriceTwo = String(price2 + totalSalesTax2)
-        
-        
-        totalDifference = String(format: "%.2f",((price + totalSalesTax))-(price2 + totalSalesTax2))
         
     }
     
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        createMessage(title: "Test", message: "Test is Starting")
-    }
     
     
     @objc func createAlert(title:String, message:String)
     {
         // Create Alert
-        let alert = UIAlertController(title: "Results", message: "Tests Completed&OK", preferredStyle: .alert)
+        let alert = UIAlertController(title:title, message:message, preferredStyle: .alert)
         // Creating on button
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             print("OK is pressed")
         }))
-        
-        
         self.present (alert, animated: true, completion: nil)
-    }
-    
-    @objc func createMessage(title:String, message:String)
-    {
-        // Create Alert
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        // Creating on button
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
-            print("OK")
-        }))
-        
-        
     }
     
 }
