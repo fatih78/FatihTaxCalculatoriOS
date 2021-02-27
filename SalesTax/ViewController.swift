@@ -171,6 +171,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     //    Function when the button is hit
     @IBAction func doen(_ sender: Any) {
+
         calculate()
         self.priceOne = "Price1: €\(totalPrice)"
         self.priceTwo = "Price2: €\(totalPriceTwo)"
@@ -184,13 +185,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     //    to access the SecondViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! SecondViewController
-        //  FinalText is already set in the SecondViewController, with this we pass the text to the SecondViewController
-        vc.finalPriceOne = self.priceOne
-        vc.finalPriceTwo = self.priceTwo
-        vc.finalDifference = self.difference
-        vc.finalCountry1 = self.country1
-        vc.finalCountry2 = self.country2
+            let vc = segue.destination as! SecondViewController
+            //  FinalText is already set in the SecondViewController, with this we pass the text to the SecondViewController
+            vc.finalPriceOne = self.priceOne
+            vc.finalPriceTwo = self.priceTwo
+            vc.finalDifference = self.difference
+            vc.finalCountry1 = self.country1
+            vc.finalCountry2 = self.country2
     }
     
     
@@ -207,8 +208,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let price2 = Double(priceTxt2.text!)!
         let salesTax2 = Double(salesTaxTxt2.text!)!
         
-        if (price.isZero || price2.isZero || price.isLess(than: 0.00) || price2.isLess(than: 0.00) || priceTxt.isEqual(EMPTY) || priceTxt2.isEqual(EMPTY) || priceTxt.isEqual(UTF16.self) || priceTxt2.isEqual(UTF16.self)) {
+//       priceTxt.text.hashValue != 0
+        if (price.isZero || price2.isZero || price.isLess(than: 0.00) || price2.isLess(than: 0.00) || priceTxt.isEqual(EMPTY) || priceTxt2.isEqual(EMPTY) || priceTxt.isEqual(UTF8.self) || priceTxt2.isEqual(UTF8.self)) {
             createAlert(title: "Enter Price", message: "Field can't be empty")
+        
         } else if (salesTax.isEqual(to: 0.00) || salesTax2.isEqual(to: 0.00)) {
             createAlert(title: "Invalid Tax Value", message: "Please enter valid value")
         }
