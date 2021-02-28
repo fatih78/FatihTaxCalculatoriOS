@@ -77,9 +77,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     //
     
     //  Calc Button
-    @IBOutlet weak var calcButton: UIButton! {
+    @IBOutlet weak var calcBtn: UIButton!{
         didSet {
-            calcButton.accessibilityIdentifier = "Calculator"
+            calcBtn.accessibilityIdentifier = "Calculator"
         }
     }
     
@@ -112,7 +112,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-                
+        
         if (pickerView.tag == 1){
             data = countries[row]
             self.detail.text = countries[row]
@@ -149,9 +149,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         super.viewDidLoad()
         self.HideKeyboard()
         view.backgroundColor = .lightGray
+        
     }
-    
-    
     
     
     // A segue has a begin- & end point > ViewController >> SecondViewController
@@ -166,13 +165,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var totalPriceTwo = ""
     var totalDifference = ""
     
-
-
+    
+    
     
     //    Function when the button is hit
     @IBAction func doen(_ sender: Any) {
-
-        calculate()
+        finalCalc()
         self.priceOne = "Price1: €\(totalPrice)"
         self.priceTwo = "Price2: €\(totalPriceTwo)"
         self.difference = "Difference: €\(totalDifference)"
@@ -181,52 +179,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         
         performSegue(withIdentifier: "Text", sender: self)
-        }
+    }
     
     //    to access the SecondViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let vc = segue.destination as! SecondViewController
-            //  FinalText is already set in the SecondViewController, with this we pass the text to the SecondViewController
-            vc.finalPriceOne = self.priceOne
-            vc.finalPriceTwo = self.priceTwo
-            vc.finalDifference = self.difference
-            vc.finalCountry1 = self.country1
-            vc.finalCountry2 = self.country2
-    }
-    
-    
-    //
-    
-    @IBOutlet weak var totalResult: UITextField!
-    
-    
-    func calculate(){
-        
-        //  let is an variable, we need to convert text into number with 'Double' > decimals
-        let price = Double(priceTxt.text!)!
-        let salesTax = Double(salesTaxTxt.text!)!
-        let price2 = Double(priceTxt2.text!)!
-        let salesTax2 = Double(salesTaxTxt2.text!)!
-        
-//       priceTxt.text.hashValue != 0
-        if (price.isZero || price2.isZero || price.isLess(than: 0.00) || price2.isLess(than: 0.00) || priceTxt.isEqual(EMPTY) || priceTxt2.isEqual(EMPTY) || priceTxt.isEqual(UTF8.self) || priceTxt2.isEqual(UTF8.self)) {
-            createAlert(title: "Enter Price", message: "Field can't be empty")
-        
-        } else if (salesTax.isEqual(to: 0.00) || salesTax2.isEqual(to: 0.00)) {
-            createAlert(title: "Invalid Tax Value", message: "Please enter valid value")
-        }
-
-            let totalSalesTax = price * salesTax
-            totalPrice = String(price + totalSalesTax)
-            
-            
-            let totalSalesTax2 = price2 * salesTax2
-            totalPriceTwo = String(price2 + totalSalesTax2)
-            
-            
-            totalDifference = String(format: "%.2f",((price + totalSalesTax))-(price2 + totalSalesTax2))
-        
-        
+        let vc = segue.destination as! SecondViewController
+        //  FinalText is already set in the SecondViewController, with this we pass the text to the SecondViewController
+        vc.finalPriceOne = self.priceOne
+        vc.finalPriceTwo = self.priceTwo
+        vc.finalDifference = self.difference
+        vc.finalCountry1 = self.country1
+        vc.finalCountry2 = self.country2
     }
     
     
