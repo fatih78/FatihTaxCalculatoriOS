@@ -10,20 +10,8 @@ import Foundation
 import UIKit
 
 extension ViewController {
-    
-    
-    //    func textFieldDidChange() {
-    //
-    //        if (priceTxt.text!.isEmpty || priceTxt2.text!.isEmpty){
-    //            print ("price fields are empty")
-    //            calcBtn.isEnabled = false
-    //        } else if (priceTxt.hasText && priceTxt2.hasText){
-    //            print ("price fields are NOT empty")
-    //            calcBtn.isEnabled = true
-    //        }
-    //    }
-    
-    
+
+        
     func finalCalc() {
         //  let is an variable, we need to convert text into number with 'Double' > decimals
         let price = Double(priceTxt.text!)!
@@ -31,9 +19,11 @@ extension ViewController {
         let price2 = Double(priceTxt2.text!)!
         let salesTax2 = Double(salesTaxTxt2.text!)!
         
+        validateNumeric()
         calcAlertsPrice()
         calcAlertsTax()
-        
+
+    
         let totalSalesTax = price * salesTax
         totalPrice = String(price + totalSalesTax)
         
@@ -45,6 +35,10 @@ extension ViewController {
         totalDifference = String(format: "%.2f",((price + totalSalesTax))-(price2 + totalSalesTax2))
         
     }
+    
+    
+    
+    
     
     
     func calcAlertsPrice(){
@@ -70,6 +64,16 @@ extension ViewController {
             createAlert(title: "Choose Country", message: "Tax field can't be empty!")
         }
         
+    }
+    
+    func validateNumeric(){
+
+        let isValid = Validations().numberValidation(number: priceTxt.text!)
+        let isValid2 = Validations().numberValidation(number: priceTxt2.text!)
+
+        if (isValid == false || isValid2 == false) {
+                createAlert(title: "Numeric", message: "Only Numeric Values")
+        }
     }
 }
 
