@@ -40,14 +40,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         view.backgroundColor = .lightGray
     }
     
-//  This function is for textFields which only will take digits. Note:see above fields must delegate their selves!!!
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string.rangeOfCharacter(from: NSCharacterSet.decimalDigits) != nil {
-                return true
-             } else {
-             return false
-          }
-       }
     
     //   Buttons/Labels/Fields
     

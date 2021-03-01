@@ -9,14 +9,59 @@
 import Foundation
 import UIKit
 
-class Validations {
+extension ViewController {
     
-    public func numberValidation(number: String) -> Bool {
-        let numberberRegex = "^(?:|0|[1-9]\\d*)(?:\\.\\d*)?$"
-        let trimmedString = number.trimmingCharacters(in: .whitespaces)
-        let validateNumber = NSPredicate(format: "SELF MATCHES %@", numberberRegex)
-        let isValidNumber = validateNumber.evaluate(with: trimmedString)
-        return isValidNumber
+    func calcAlertsPrice(){
+        //  let is an variable, we need to convert text into number with 'Double' > decimals
+        let price = Double(priceTxt.text!)!
+        let price2 = Double(priceTxt2.text!)!
+        
+        if (price.isZero || price2.isZero || price.isLess(than: 0.00) || price2.isLess(than: 0.00) || priceTxt.text!.isEmpty || priceTxt2.text!.isEmpty) {
+            createAlert(title: "Enter Price", message: "Empty fields or negative numbers are not allowed!")
+            
+        }
+        
     }
     
+    
+    func calcAlertsTax(){
+        //  let is an variable, we need to convert text into number with 'Double' > decimals
+        let salesTax = Double(salesTaxTxt.text!)!
+        let salesTax2 = Double(salesTaxTxt2.text!)!
+        
+        
+        if (salesTax.isEqual(to: 0.00) || salesTax2.isEqual(to: 0.00)) {
+            createAlert(title: "Choose Country", message: "Tax field can't be empty!")
+        }
+        
+    }
+    
+    //  This function is for textFields which only will take digits. Note:see ViewController text fields must delegate their selves!!!
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let inverseSet = NSCharacterSet(charactersIn:"0123456789").inverted
+
+        let components = string.components(separatedBy: inverseSet)
+
+        let filtered = components.joined(separator: "")
+
+        if filtered == string {
+            return true
+        } else {
+            if string == "." {
+                let countdots = textField.text!.components(separatedBy:".").count - 1
+                if countdots == 0 {
+                    return true
+                }else{
+                    if countdots > 0 && string == "." {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            }else{
+                return false
+            }
+        }
+    }
 }
