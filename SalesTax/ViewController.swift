@@ -27,8 +27,8 @@ extension UIViewController {
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
-    var countries = ["Select Country","Netherlands","France"]
-    var countries2 = ["Select Country","Netherlands","France"]
+    var countries = ["Select Country","Netherlands","France","Belgium"]
+    var countries2 = ["Select Country","Netherlands","France","Belgium"]
     var data = ""
     var data2 = ""
     
@@ -146,6 +146,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             if (countries[row] == "France"){
                 France1()
             }
+            if (countries[row] == "Belgium"){
+                Belgium1()
+            }
             
         } else if (pickerView.tag == 2){
             data2 = countries2[row]
@@ -159,6 +162,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             if (countries2[row] == "France"){
                 France2()
             }
+            if (countries2[row] == "Belgium"){
+                Belgium2()
+            }
+            
             return data2
         }
         return data

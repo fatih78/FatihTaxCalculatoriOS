@@ -86,4 +86,27 @@ extension ViewController {
         self.view.bringSubviewToFront(imageView2)
         
     }
+    
+    func Belgium1(){
+        self.salesTaxTxt.text?.removeAll()
+        salesTaxTxt.insertText("0.12")
+        let imageName = "belgium.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = position1
+        self.view.addSubview(imageView)
+        self.view.bringSubviewToFront(imageView)
+        
+    }
+    func Belgium2(){
+        self.salesTaxTxt2.text?.removeAll()
+        salesTaxTxt2.insertText("0.12")
+        let imageName2 = "belgium.png"
+        let image2 = UIImage(named: imageName2)
+        let imageView2 = UIImageView(image: image2!)
+        imageView2.frame = position2
+        self.view.addSubview(imageView2)
+        self.view.bringSubviewToFront(imageView2)
+        
+    }
 }

@@ -40,6 +40,9 @@ extension SecondViewController {
         } else if (finalCountry2 == "Netherlands"){
             imageName2 = "netherlands.png"
             imageView2()
+        } else if (finalCountry2 == "Belgium"){
+            imageName2 = "belgium.png"
+            imageView2()
         }
     }
     
@@ -52,10 +55,12 @@ extension SecondViewController {
         } else if (finalCountry1 == "Netherlands"){
             imageName = "netherlands.png"
             imageView1()
-        }
+        } else if (finalCountry1 == "Belgium"){
+            imageName = "belgium.png"
+            imageView1()
     }
     
 }
 
-
+}
 
