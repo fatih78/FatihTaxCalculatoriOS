@@ -19,7 +19,6 @@ extension ViewController {
         let price2 = Double(priceTxt2.text!)!
         let salesTax2 = Double(salesTaxTxt2.text!)!
         
-        validateNumeric()
         calcAlertsPrice()
         calcAlertsTax()
 
@@ -65,14 +64,14 @@ extension ViewController {
         
     }
     
-    func validateNumeric(){
-
-        let isValid = Validations().numberValidation(number: priceTxt.text!)
-        let isValid2 = Validations().numberValidation(number: priceTxt2.text!)
-
-        if (isValid == false || isValid2 == false) {
-                createAlert(title: "Numeric", message: "Only Numeric Values")
-        }
-    }
+//    func validateNumeric(){
+//
+//        let isValid = Validations().numberValidation(number: priceTxt.text!)
+//        let isValid2 = Validations().numberValidation(number: priceTxt2.text!)
+//
+//        if (isValid == false || isValid2 == false) {
+//                createAlert(title: "Numeric", message: "Only Numeric Values")
+//        }
+//    }
 }
 
