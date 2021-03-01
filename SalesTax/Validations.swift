@@ -16,9 +16,11 @@ extension ViewController {
         let price = Double(priceTxt.text!)!
         let price2 = Double(priceTxt2.text!)!
         
-        if (price.isZero || price2.isZero || price.isLess(than: 0.00) || price2.isLess(than: 0.00) || priceTxt.text!.isEmpty || priceTxt2.text!.isEmpty) {
-            createAlert(title: "Enter Price", message: "Empty fields or negative numbers are not allowed!")
+        if (price.isZero || price2.isZero || price.isLess(than: 0.00) || price2.isLess(than: 0.00)) {
+            createAlert(title: "Enter Price", message: "Zero or negative numbers are not allowed!")
             
+        } else if (price.isEqual(to: Double(EMPTY)) || price2.isEqual(to: Double(EMPTY)) || priceTxt.text == "Price" || priceTxt2.text == "Price"){
+            createAlert(title: "Enter Price", message: "Null value's are not allowed!")
         }
         
     }

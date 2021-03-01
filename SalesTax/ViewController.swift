@@ -175,8 +175,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         self.difference = "Difference: €\(totalDifference)"
         self.country1 = data
         self.country2 = data2
-        
-        
+
         performSegue(withIdentifier: "Text", sender: self)
     }
     
