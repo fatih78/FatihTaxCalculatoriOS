@@ -49,6 +49,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         self.HideKeyboard()
         priceTxt.delegate = self
         priceTxt2.delegate = self
+        salesTaxTxt.delegate = self
+        salesTaxTxt2.delegate = self
         view.backgroundColor = .lightGray
     }
     
