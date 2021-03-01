@@ -20,50 +20,50 @@ extension ViewController {
             createAlert(title: "Enter Price", message: "Zero or negative numbers are not allowed!")
             
         }}
+    
+    
+    func calcAlertsTax(){
+        //  let is an variable, we need to convert text into number with 'Double' > decimals
+        let salesTax = Double(salesTaxTxt.text!)!
+        let salesTax2 = Double(salesTaxTxt2.text!)!
         
-        
-        func calcAlertsTax(){
-            //  let is an variable, we need to convert text into number with 'Double' > decimals
-            let salesTax = Double(salesTaxTxt.text!)!
-            let salesTax2 = Double(salesTaxTxt2.text!)!
-            
-            if (salesTax.isEqual(to: 0.00) || salesTax2.isEqual(to: 0.00)) {
-                createAlert(title: "Choose Country", message: "Tax field can't be empty!")
-            }
-            
+        if (salesTax.isEqual(to: 0.00) || salesTax2.isEqual(to: 0.00)) {
+            createAlert(title: "Choose Country", message: "Tax field can't be empty!")
         }
         
-        func countryAlert(){
-            if (country1 == country2){
-                createAlert(title: "Country are the Same", message: "Choose different countries!")
-            }
+    }
+    
+    func countryAlert(){
+        if (data == data2){
+            createAlert(title: "Country are the Same", message: "Choose different countries!")
         }
+    }
+    
+    //  This function is for textFields which only will take digits. Note:see ViewController text fields must delegate their selves!!!
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let inverseSet = NSCharacterSet(charactersIn:"0123456789").inverted
         
-        //  This function is for textFields which only will take digits. Note:see ViewController text fields must delegate their selves!!!
+        let components = string.components(separatedBy: inverseSet)
         
-        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            let inverseSet = NSCharacterSet(charactersIn:"0123456789").inverted
-            
-            let components = string.components(separatedBy: inverseSet)
-            
-            let filtered = components.joined(separator: "")
-            
-            if filtered == string {
-                return true
-            } else {
-                if string == "." {
-                    let countdots = textField.text!.components(separatedBy:".").count - 1
-                    if countdots == 0 {
-                        return true
-                    }else{
-                        if countdots > 0 && string == "." {
-                            return false
-                        } else {
-                            return true
-                        }
-                    }
+        let filtered = components.joined(separator: "")
+        
+        if filtered == string {
+            return true
+        } else {
+            if string == "." {
+                let countdots = textField.text!.components(separatedBy:".").count - 1
+                if countdots == 0 {
+                    return true
                 }else{
-                    return false
+                    if countdots > 0 && string == "." {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            }else{
+                return false
                 
             }
         }

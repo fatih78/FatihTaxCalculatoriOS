@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-var pos1 = CGRect(x: 110, y: 75, width: 40, height: 40)
-var pos2 = CGRect(x: 260, y: 75, width: 40, height: 40)
+var pos1 = CGRect(x: 100, y: 75, width: 40, height: 40)
+var pos2 = CGRect(x: 250, y: 75, width: 40, height: 40)
 
 
 extension SecondViewController {

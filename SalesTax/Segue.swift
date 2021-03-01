@@ -26,7 +26,7 @@ extension ViewController {
         } else {
             createAlert(title: "Empty Price Fields", message: "Please enter value's")
         }
-
+        
         performSegue(withIdentifier: "Text", sender: self)
     }
     
