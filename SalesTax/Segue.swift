@@ -16,13 +16,17 @@ extension ViewController {
     
     //    Function when the button is hit
     @IBAction func doen(_ sender: Any) {
-        finalCalc()
-        self.priceOne = "Price1: €\(totalPrice)"
-        self.priceTwo = "Price2: €\(totalPriceTwo)"
-        self.difference = "Difference: €\(totalDifference)"
-        self.country1 = data
-        self.country2 = data2
-        
+        if (priceTxt.hasText && priceTxt2.hasText){
+            finalCalc()
+            self.priceOne = "Price1: €\(totalPrice)"
+            self.priceTwo = "Price2: €\(totalPriceTwo)"
+            self.difference = "Difference: €\(totalDifference)"
+            self.country1 = data
+            self.country2 = data2
+        } else {
+            createAlert(title: "Empty Price Fields", message: "Please enter value's")
+        }
+
         performSegue(withIdentifier: "Text", sender: self)
     }
     

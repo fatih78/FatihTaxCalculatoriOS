@@ -108,7 +108,6 @@
                     <navigationItem key="navigationItem" id="lqh-rc-j2H"/>
                     <connections>
                         <outlet property="appLabel" destination="Vl5-Vu-noI" id="NsU-fh-mGs"/>
-                        <outlet property="calcBtn" destination="yuf-gO-WiL" id="4kq-Kk-3Cp"/>
                         <outlet property="detail" destination="hB6-mx-nth" id="sCO-ru-flG"/>
                         <outlet property="detail2" destination="7pV-32-Hdf" id="Fj0-ed-WrP"/>
                         <outlet property="priceTxt" destination="B6w-v8-oQA" id="AQd-Qr-bTb"/>

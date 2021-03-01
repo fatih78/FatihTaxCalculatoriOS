@@ -19,7 +19,6 @@ extension ViewController {
         self.salesTaxTxt.text?.removeAll()
         self.priceTxt.text?.removeAll()
         salesTaxTxt.insertText("0.00")
-        priceTxt.insertText("0")
         let imageName = "world.png"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
@@ -32,7 +31,6 @@ extension ViewController {
         self.salesTaxTxt2.text?.removeAll()
         self.priceTxt2.text?.removeAll()
         salesTaxTxt2.insertText("0.00")
-        priceTxt2.insertText("0")
         let imageName2 = "world.png"
         let image2 = UIImage(named: imageName2)
         let imageView2 = UIImageView(image: image2!)
