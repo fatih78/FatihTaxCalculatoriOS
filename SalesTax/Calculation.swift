@@ -40,7 +40,6 @@ extension ViewController {
     
     
     
-    
     func calcAlertsPrice(){
         //  let is an variable, we need to convert text into number with 'Double' > decimals
         let price = Double(priceTxt.text!)!

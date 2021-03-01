@@ -25,14 +25,29 @@ extension UIViewController {
 }
 
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     var countries = ["Select Country","Netherlands","France"]
     var countries2 = ["Select Country","Netherlands","France"]
     var data = ""
     var data2 = ""
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.HideKeyboard()
+        priceTxt.delegate = self
+        priceTxt2.delegate = self
+        view.backgroundColor = .lightGray
+    }
     
+//  This function is for textFields which only will take digits. Note:see above fields must delegate their selves!!!
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string.rangeOfCharacter(from: NSCharacterSet.decimalDigits) != nil {
+                return true
+             } else {
+             return false
+          }
+       }
     
     //   Buttons/Labels/Fields
     
@@ -141,14 +156,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             return data2
         }
         return data
-        
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.HideKeyboard()
-        view.backgroundColor = .lightGray
         
     }
     
