@@ -19,9 +19,10 @@ extension ViewController {
         let price2 = Double(priceTxt2.text!)!
         let salesTax2 = Double(salesTaxTxt2.text!)!
         
+        
         calcAlertsPrice()
         calcAlertsTax()
-        
+        countryAlert()
         
         let totalSalesTax = price * salesTax
         totalPrice = String(price + totalSalesTax)
