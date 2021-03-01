@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 extension ViewController {
-
-        
+    
+    
     func finalCalc() {
         //  let is an variable, we need to convert text into number with 'Double' > decimals
         let price = Double(priceTxt.text!)!
@@ -21,8 +21,8 @@ extension ViewController {
         
         calcAlertsPrice()
         calcAlertsTax()
-
-    
+        
+        
         let totalSalesTax = price * salesTax
         totalPrice = String(price + totalSalesTax)
         
@@ -34,6 +34,6 @@ extension ViewController {
         totalDifference = String(format: "%.2f",((price + totalSalesTax))-(price2 + totalSalesTax2))
         
     }
-
+    
 }
 

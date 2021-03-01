@@ -32,6 +32,18 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var data = ""
     var data2 = ""
     
+    
+    // A segue has a begin- & end point > ViewController >> SecondViewController
+    // See alsoclass Segue.swift
+    var priceOne = ""
+    var priceTwo = ""
+    var difference = ""
+    var country1 = ""
+    var country2 = ""
+    var totalPrice = ""
+    var totalPriceTwo = ""
+    var totalDifference = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.HideKeyboard()
@@ -150,47 +162,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return data
         
     }
-    
-    
-    // A segue has a begin- & end point > ViewController >> SecondViewController
-    
-    var priceOne = ""
-    var priceTwo = ""
-    var difference = ""
-    var country1 = ""
-    var country2 = ""
-    
-    var totalPrice = ""
-    var totalPriceTwo = ""
-    var totalDifference = ""
-    
-    
-    
-    
-    //    Function when the button is hit
-    @IBAction func doen(_ sender: Any) {
-        finalCalc()
-        self.priceOne = "Price1: €\(totalPrice)"
-        self.priceTwo = "Price2: €\(totalPriceTwo)"
-        self.difference = "Difference: €\(totalDifference)"
-        self.country1 = data
-        self.country2 = data2
-
-        performSegue(withIdentifier: "Text", sender: self)
-    }
-    
-    //    to access the SecondViewController
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! SecondViewController
-        //  FinalText is already set in the SecondViewController, with this we pass the text to the SecondViewController
-        vc.finalPriceOne = self.priceOne
-        vc.finalPriceTwo = self.priceTwo
-        vc.finalDifference = self.difference
-        vc.finalCountry1 = self.country1
-        vc.finalCountry2 = self.country2
-    }
-    
-    
     
     @objc func createAlert(title:String, message:String)
     {
