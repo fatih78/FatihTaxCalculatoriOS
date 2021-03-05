@@ -35,7 +35,7 @@ extension ViewController {
     
     func countryAlert(){
         if (data == data2){
-            createAlert(title: "Country are the Same", message: "Choose different countries!")
+            createAlert(title: "Countries are the Same", message: "Choose different countries!")
         }
     }
     

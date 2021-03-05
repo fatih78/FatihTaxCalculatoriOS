@@ -27,8 +27,8 @@ extension UIViewController {
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
-    var countries = ["Select Country","Netherlands","France","Belgium"]
-    var countries2 = ["Select Country","Netherlands","France","Belgium"]
+    var countries = ["Select Country1","Netherlands","France","Belgium"]
+    var countries2 = ["Select Country2","Netherlands","France","Belgium"]
     var data = ""
     var data2 = ""
     
@@ -86,101 +86,98 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBOutlet weak var priceTxt: UITextField! {
         didSet {
-            priceTxt.accessibilityIdentifier = "Price"
+            priceTxt.accessibilityIdentifier = "FirstPriceOne"
         }
     }
     
     @IBOutlet weak var priceTxt2: UITextField! {
         didSet {
-            priceTxt2.accessibilityIdentifier = "Price2"
+            priceTxt2.accessibilityIdentifier = "FirstPriceTwo"
         }
     }
     //
     
     //  Calc Button
-    @IBOutlet weak var calcBtn: UIButton!{
+    
+    @IBOutlet weak var calculator: UIButton! {
         didSet {
-            calcBtn.accessibilityIdentifier = "Calculator"
+            calculator.accessibilityIdentifier = "Calculator"
         }
     }
-    
-    
-    
-    @IBOutlet weak var appLabel: UITextField! {
+        
+        @IBOutlet weak var appLabel: UITextField! {
         didSet {
-            appLabel.accessibilityIdentifier = "AppLabel"
+        appLabel.accessibilityIdentifier = "AppLabel"
         }
-    }
-    
-    
-    //    pickerView1
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        }
+        
+        
+        //    pickerView1
+        
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var count = 0
         if (pickerView.tag == 1){
-            count = countries.count
+        count = countries.count
         } else if (pickerView.tag == 2){
-            count = countries2.count
+        count = countries2.count
         }
         return count
+        }
         
-    }
-    
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+        {
         
         if (pickerView.tag == 1){
-            data = countries[row]
-            self.detail.text = countries[row]
-            if (countries[row] == "Select Country"){
-                Countries1()
-            }
-            if (countries[row] == "Netherlands"){
-                Netherlands1()
-            }
-            if (countries[row] == "France"){
-                France1()
-            }
-            if (countries[row] == "Belgium"){
-                Belgium1()
-            }
-            
+        data = countries[row]
+        self.detail.text = countries[row]
+        if (countries[row] == "Select Country1"){
+        Countries1()
+        }
+        if (countries[row] == "Netherlands"){
+        Netherlands1()
+        }
+        if (countries[row] == "France"){
+        France1()
+        }
+        if (countries[row] == "Belgium"){
+        Belgium1()
+        }
+        
         } else if (pickerView.tag == 2){
-            data2 = countries2[row]
-            self.detail2.text = countries2[row]
-            if (countries2[row] == "Select Country"){
-                Countries2()
-            }
-            if (countries2[row] == "Netherlands"){
-                Netherlands2()
-            }
-            if (countries2[row] == "France"){
-                France2()
-            }
-            if (countries2[row] == "Belgium"){
-                Belgium2()
-            }
-            
-            return data2
+        data2 = countries2[row]
+        self.detail2.text = countries2[row]
+        if (countries2[row] == "Select Country2"){
+        Countries2()
+        }
+        if (countries2[row] == "Netherlands"){
+        Netherlands2()
+        }
+        if (countries2[row] == "France"){
+        France2()
+        }
+        if (countries2[row] == "Belgium"){
+        Belgium2()
+        }
+        return data2
         }
         return data
         
-    }
-    
-    @objc func createAlert(title:String, message:String)
-    {
+        }
+        
+        @objc func createAlert(title:String, message:String)
+        {
         // Create Alert
         let alert = UIAlertController(title:title, message:message, preferredStyle: .alert)
         // Creating on button
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            print("OK is pressed")
+        print("OK is pressed")
         }))
         self.present (alert, animated: true, completion: nil)
+        }
+        
     }
-    
-}

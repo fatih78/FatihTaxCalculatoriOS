@@ -21,13 +21,13 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var priceOne: UILabel!{
         didSet {
-            priceOne.accessibilityIdentifier = "priceOne"
+            priceOne.accessibilityIdentifier = "SecondPriceOne"
         }
     }
     
     @IBOutlet weak var priceTwo: UILabel!{
         didSet {
-            priceTwo.accessibilityIdentifier = "priceTwo"
+            priceTwo.accessibilityIdentifier = "SecondPriceTwo"
         }
     }
     

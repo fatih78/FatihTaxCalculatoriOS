@@ -9,29 +9,15 @@
 import XCTest
 import UIKit
 
+
 class SalesTaxUITests: XCTestCase {
-    
-    
     let application:XCUIApplication = XCUIApplication()
     
-    let button = XCUIApplication().buttons["CALCULATE"]
-    let taxCountry = XCUIApplication().textFields["Select Country"]
-    let priceLabel = XCUIApplication().textFields ["Price"]
-    let taxLabel = XCUIApplication().textFields ["SalesTax"]
-    let totalLabel = XCUIApplication().staticTexts["TotalPrice"]
-    let okButton = XCUIApplication().staticTexts["OK"]
-    let taxButtonFR = XCUIApplication().buttons["FR"]
-    let taxButtonNL = XCUIApplication().buttons["NL"]
-    let alert = XCUIApplication().alerts["Error"]
-    let dropdown = XCUIApplication().pickers
-
-
-
     
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        XCUIApplication().launch()
+        application.launch()
     }
     
     override func tearDown() {
@@ -41,71 +27,58 @@ class SalesTaxUITests: XCTestCase {
     
     
     func testElements() {
-        
-        XCTAssertNotNil(priceLabel)
-        XCTAssertTrue(priceLabel.exists)
-        XCTAssertNotNil(taxLabel)
-        XCTAssertTrue(taxLabel.exists)
-        XCTAssertNotNil(totalLabel)
-        XCTAssertTrue(totalLabel.exists)
-        XCTAssertNotNil(taxCountry)
-        XCTAssertNotNil(dropdown)
-
+        XCTAssertTrue(priceLabelFirst.exists)
+        XCTAssertTrue(priceLabel2First.exists)
     }
     
-     func testPriceAlertMessageNegativeNumber() {
     
-         priceLabel.tap()
-         priceLabel.typeText("-1").self
-         button.tap()
-         XCTAssertTrue(alert.exists)
-
-     }
-    
-     func testPriceAlertMessageZeroNumber() {
-    
-         priceLabel.tap()
-         priceLabel.typeText("0").self
-         button.tap()
-         XCTAssertTrue(alert.exists)
-
-     }
-    
-    func testTaxCalculationFrance() {
-   
-        priceLabel.tap()
-        priceLabel.typeText("200")
-        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "FR")
+    func testPriceAlertMessageZeroNumber() {
+        
+        priceLabelFirst.clearAndEnterText(text: "0")
+        priceLabel2First.clearAndEnterText(text: "0")
         button.tap()
-        
-        if let contentTotal = totalLabel.value as? Double {
-            XCTAssert(contentTotal.isEqual(to: 242.00))
-        }
-    }
-    
-    func testTaxCalculationNetherlands() {
-        
-        priceLabel.tap()
-        priceLabel.typeText("200")
-        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "NL")
-        button.tap()
-        
-        if let contentTotal = totalLabel.value as? Double {
-            XCTAssert(contentTotal.isEqual(to: 242.00))
-        }
+        XCTAssertTrue(alert3.exists)
+        XCTAssertTrue(alert4.exists)
         
     }
     
-    func testTaxCalculationDenmark() {
-        
-        priceLabel.tap()
-        priceLabel.typeText("200")
-        application.pickerWheels["Select Country"].adjust(toPickerWheelValue: "DE")
+    func testAlertTaxCountryFields() {
+        priceLabelFirst.clearAndEnterText(text: "200")
+        priceLabel2First.clearAndEnterText(text: "400")
         button.tap()
         
-        if let contentTotal = totalLabel.value as? Double {
-            XCTAssert(contentTotal.isEqual(to: 250.00))
-        }
+        XCTAssertTrue(alert2.exists)
+    }
+    
+    func testAlertEmptyPriceFields() {
+        application.pickerWheels["Select Country1"].adjust(toPickerWheelValue: "France")
+        application.pickerWheels["Select Country2"].adjust(toPickerWheelValue: "Netherlands")
+        
+        button.tap()
+        XCTAssertTrue(alert1.exists)
+    }
+    
+    func testAlertSameCountries() {
+        application.pickerWheels["Select Country1"].adjust(toPickerWheelValue: "Netherlands")
+        application.pickerWheels["Select Country2"].adjust(toPickerWheelValue: "Netherlands")
+        priceLabelFirst.clearAndEnterText(text: "200")
+        priceLabel2First.clearAndEnterText(text: "400")
+        
+        button.tap()
+        XCTAssertTrue(alert5.exists)
+        XCTAssertTrue(alert6.exists)
+    }
+    
+    func testCalculation1() {
+        application.pickerWheels["Select Country1"].adjust(toPickerWheelValue: "France")
+        application.pickerWheels["Select Country2"].adjust(toPickerWheelValue: "Netherlands")
+        priceLabelFirst.clearAndEnterText(text: "200")
+        priceLabel2First.clearAndEnterText(text: "400")
+        button.tap()
+        
+        XCTAssertTrue(priceLabelSecond.label == "Price1: €240.0")
+        XCTAssertTrue(priceLabel2Second.label == "Price2: €484.0")
+        XCTAssertTrue(priceDifferenceSecond.label == "Difference: €-244.00")
         
     }
     

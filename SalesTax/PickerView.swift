@@ -17,7 +17,7 @@ extension ViewController {
     
     func Countries1(){
         self.salesTaxTxt.text?.removeAll()
-        self.priceTxt.text?.removeAll()
+//        self.priceTxt.text?.removeAll()
         salesTaxTxt.insertText("0.00")
         let imageName = "world.png"
         let image = UIImage(named: imageName)
@@ -29,7 +29,7 @@ extension ViewController {
     
     func Countries2(){
         self.salesTaxTxt2.text?.removeAll()
-        self.priceTxt2.text?.removeAll()
+//        self.priceTxt2.text?.removeAll()
         salesTaxTxt2.insertText("0.00")
         let imageName2 = "world.png"
         let image2 = UIImage(named: imageName2)

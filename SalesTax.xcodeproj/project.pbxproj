@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C3122BC825ED08B5002CA8EF /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3122BC725ED08B5002CA8EF /* Segue.swift */; };
 		C34936C025E0813000125F45 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34936BF25E0813000125F45 /* SecondViewController.swift */; };
+		C36C054E25F2527100BA0F01 /* ClearAndEnterText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C054D25F2527100BA0F01 /* ClearAndEnterText.swift */; };
 		C38135FA24C19D38006D9391 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38135F924C19D38006D9391 /* AppDelegate.swift */; };
 		C38135FC24C19D38006D9391 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38135FB24C19D38006D9391 /* SceneDelegate.swift */; };
 		C38135FE24C19D38006D9391 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38135FD24C19D38006D9391 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 		C381360624C19D41006D9391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C381360424C19D41006D9391 /* LaunchScreen.storyboard */; };
 		C381361124C19D41006D9391 /* SalesTaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381361024C19D41006D9391 /* SalesTaxTests.swift */; };
 		C381361C24C19D41006D9391 /* SalesTaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C381361B24C19D41006D9391 /* SalesTaxUITests.swift */; };
+		C3927DFF25F28A6E00FBA4D6 /* ReferenceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3927DFE25F28A6E00FBA4D6 /* ReferenceScreen.swift */; };
 		C39F1C0525EBBAD800DAEDA4 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F1C0425EBBAD800DAEDA4 /* Calculation.swift */; };
 		C39F1C1F25EBD48300DAEDA4 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F1C1E25EBD48200DAEDA4 /* Validations.swift */; };
 		C3F2564025E5C54900C8C879 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2563F25E5C54900C8C879 /* Flags.swift */; };
@@ -43,6 +45,7 @@
 /* Begin PBXFileReference section */
 		C3122BC725ED08B5002CA8EF /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		C34936BF25E0813000125F45 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C36C054D25F2527100BA0F01 /* ClearAndEnterText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearAndEnterText.swift; sourceTree = "<group>"; };
 		C38135F624C19D38006D9391 /* SalesTax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalesTax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38135F924C19D38006D9391 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C38135FB24C19D38006D9391 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		C381361724C19D41006D9391 /* SalesTaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalesTaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C381361B24C19D41006D9391 /* SalesTaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesTaxUITests.swift; sourceTree = "<group>"; };
 		C381361D24C19D41006D9391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3927DFE25F28A6E00FBA4D6 /* ReferenceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceScreen.swift; sourceTree = "<group>"; };
 		C39F1C0425EBBAD800DAEDA4 /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		C39F1C1E25EBD48200DAEDA4 /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		C3F2563F25E5C54900C8C879 /* Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 			children = (
 				C381361B24C19D41006D9391 /* SalesTaxUITests.swift */,
 				C381361D24C19D41006D9391 /* Info.plist */,
+				C36C054D25F2527100BA0F01 /* ClearAndEnterText.swift */,
+				C3927DFE25F28A6E00FBA4D6 /* ReferenceScreen.swift */,
 			);
 			path = SalesTaxUITests;
 			sourceTree = "<group>";
@@ -302,6 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C381361C24C19D41006D9391 /* SalesTaxUITests.swift in Sources */,
+				C3927DFF25F28A6E00FBA4D6 /* ReferenceScreen.swift in Sources */,
+				C36C054E25F2527100BA0F01 /* ClearAndEnterText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
