@@ -24,30 +24,24 @@ class SalesTaxUITests: XCTestCase {
         super.tearDown()
     }
     
+
     
-    
-    func testElements() {
+    func testAlerts() {
         XCTAssertTrue(priceLabelFirst.exists)
         XCTAssertTrue(priceLabel2First.exists)
-    }
-    
-    
-    func testPriceAlertMessageZeroNumber() {
-        
+                
         priceLabelFirst.clearAndEnterText(text: "0")
         priceLabel2First.clearAndEnterText(text: "0")
         button.tap()
         XCTAssertTrue(alert3.exists)
         XCTAssertTrue(alert4.exists)
         
-    }
-    
-    func testAlertTaxCountryFields() {
         priceLabelFirst.clearAndEnterText(text: "200")
         priceLabel2First.clearAndEnterText(text: "400")
         button.tap()
         
         XCTAssertTrue(alert2.exists)
+        
     }
     
     func testAlertEmptyPriceFields() {
